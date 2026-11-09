@@ -11,7 +11,7 @@ export function AuroraLazy() {
   useEffect(() => {
     let t: ReturnType<typeof setTimeout> | undefined;
     const idle = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
-    const start = () => { t = setTimeout(() => { if (idle) idle(() => setOn(true), { timeout: 2500 }); else setOn(true); }, 1200); };
+    const start = () => { t = setTimeout(() => { if (idle) idle(() => setOn(true), { timeout: 2500 }); else setOn(true); }, window.matchMedia("(max-width: 900px)").matches ? 4200 : 1200); };
     if (document.readyState === "complete") start();
     else window.addEventListener("load", start, { once: true });
     return () => { window.removeEventListener("load", start); if (t) clearTimeout(t); };

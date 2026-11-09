@@ -1,16 +1,24 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 
-/** Cursor customizado, só com mouse: ponto dourado que cresce nos links e vira "VER" sobre as imagens ([data-cursor]). Celular e movimento reduzido: não existe. */
+const QUERY = "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)";
+const subscribe = (cb: () => void) => {
+  const mq = window.matchMedia(QUERY);
+  mq.addEventListener("change", cb);
+  return () => mq.removeEventListener("change", cb);
+};
+const snapshot = () => window.matchMedia(QUERY).matches;
+
+/** Cursor customizado, só com mouse: ponto dourado que cresce nos links e vira "VER" sobre as imagens ([data-cursor]).
+ *  Só é renderizado com ponteiro preciso (nada vai para o HTML, então o leitor de tela e o celular nunca veem o rótulo "Ver"). */
 export default function Cursor() {
+  const enabled = useSyncExternalStore(subscribe, snapshot, () => false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!enabled || !el) return;
     const root = document.documentElement;
     root.classList.add("has-cursor");
     let x = -100, y = -100, tx = -100, ty = -100, raf = 0;
@@ -38,7 +46,8 @@ export default function Cursor() {
       document.removeEventListener("pointerleave", out);
       root.classList.remove("has-cursor");
     };
-  }, []);
+  }, [enabled]);
 
-  return <div ref={ref} className="cursor" aria-hidden="true"><span>Ver</span></div>;
+  if (!enabled) return null;
+  return <div ref={ref} className="cursor" aria-hidden="true"><span aria-hidden="true">Ver</span></div>;
 }

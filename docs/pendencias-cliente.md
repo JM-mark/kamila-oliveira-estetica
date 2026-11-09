@@ -1,4 +1,6 @@
-# O que ficou A CONFIRMAR (lista para o Jeff pedir à Kamila)
+# Pendências com a cliente (lista para o Jeff pedir à Kamila)
+
+(Substitui `a-confirmar.md`, v6.) Resumo do que mais pesa: endereço, WhatsApp, horário, autorização das fotos do Instagram, logo original e texto dos diferenciais ("Parcelamento em até 4x" precisa de confirmação).
 
 Nada abaixo foi inventado: o site mostra só o que veio do briefing ou da agenda dela. Onde falta dado, o site pede pelo WhatsApp ou deixa a flag desligada.
 
@@ -31,3 +33,9 @@ Nada abaixo foi inventado: o site mostra só o que veio do briefing ou da agenda
 - [ ] Ativar GA4 (`NEXT_PUBLIC_GA_ID`) e, antes, decidir o aviso de cookies e completar a política de privacidade com a identificação da responsável (razão social, CPF/CNPJ e contato).
 - [ ] Rodar o build com `NEXT_PUBLIC_INDEXABLE=true` e `NEXT_PUBLIC_SITE_URL` do domínio (canonical, sitemap e remoção do `noindex`).
 - [ ] Aprovação do tom extra de ouro profundo (#7D5F27) usado em texto pequeno dourado sobre fundo claro.
+
+
+## Instagram (v6)
+- [ ] Autorização escrita da Kamila para os 3 quadros da seção "No Instagram" (`De2D2_8pfWl`, `DfPRk6hhjqa`, `Dez_PehBLC5`) e para o recorte do "Sobre".
+- [ ] Confirmar que a pessoa do reel `DfPRk6hhjqa` é a Kamila.
+- [ ] Escolher mais 3 posts sem rosto/pele de cliente, sem antes e depois e sem preço, para completar a grade de 6 (editar `src/data/instagram.ts` e rodar `node scripts/process-instagram.mjs`).

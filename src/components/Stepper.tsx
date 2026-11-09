@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { SERVICES } from "@/content/services";
+import { AGENDA_SERVICES } from "@/content/services";
 import { SITE } from "@/content/site";
 import { track } from "@/lib/track";
 import { waLink } from "@/lib/wa";
@@ -35,12 +35,12 @@ export default function Stepper() {
   useEffect(() => {
     const q = new URLSearchParams(window.location.search).get("servico");
     const t = setTimeout(() => {
-      if (q && SERVICES.some((x) => x.slug === q)) { setSlug(q); setStep(1); }
+      if (q && AGENDA_SERVICES.some((x) => x.slug === q)) { setSlug(q); if (q === "relaxamento") setItem("Massagem relaxante"); setStep(1); }
     }, 0);
     return () => clearTimeout(t);
   }, []);
 
-  const servico = SERVICES.find((s) => s.slug === slug);
+  const servico = AGENDA_SERVICES.find((s) => s.slug === slug);
 
   const mensagem = useMemo(() => {
     if (!servico) return "";
@@ -72,7 +72,7 @@ export default function Stepper() {
         <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
           <legend className="display" style={{ fontSize: 30, marginBottom: 6 }}>Qual serviço você procura?</legend>
           <div className="opts">
-            {SERVICES.map((s) => (
+            {AGENDA_SERVICES.map((s) => (
               <label key={s.slug} className="opt">
                 <input type="radio" name="servico" checked={slug === s.slug} onChange={() => { setSlug(s.slug); setItem(""); }} />
                 {s.title}

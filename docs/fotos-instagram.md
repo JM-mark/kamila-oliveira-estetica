@@ -31,3 +31,19 @@ Fotos do espaço (sala, maca, recepção, fachada) e do aparelho de laser em uso
 ## Como ligar ou trocar
 - Foto do Sobre: `FOTO_SOBRE` em `src/content/espaco.ts`, ou `SITE.kamilaPhoto` em `src/content/site.ts` para um arquivo novo. Reprocessar com `node scripts/process-espaco.mjs`.
 - Grade "Quem cuida de você": listar 4 ou mais fotos aprovadas em `ESPACO` (hoje vazia, e por isso desligada).
+
+
+## v6: grade "No Instagram" (3 posts, não 6)
+O pedido era uma grade de 6 posts reais. Entraram 3, porque os outros 6 da lista do Jeff quebram regras do próprio prompt (rosto ou pele de cliente sem autorização escrita, antes e depois, preço, conteúdo de outra conta). Registro completo em `src/data/instagram.ts`.
+| Post | Situação | Motivo |
+|---|---|---|
+| De2D2_8pfWl | NO SITE | Kamila com óculos do laser, sem cliente |
+| DfPRk6hhjqa | NO SITE | Parece a Kamila; confirmar com ela |
+| Dez_PehBLC5 | NO SITE | Retrato dela (reserva da lista) |
+| DfQMoPsp-0y | fora | Pele de cliente, marca d'água de outra conta, legenda promete resultado |
+| DfOASylpFy5 | fora | Rosto de cliente em procedimento |
+| DexZUvbhBaE | fora | Conteúdo de outra conta (renatafelix.estetica) |
+| DeuzZ-0kexy | fora | Antes e depois |
+| DeuNSMfRRWq | fora | Arte com preços |
+| DeuJtvQxQ10 | fora | Antes e depois (cravos) |
+Os 3 em uso ainda dependem do **aval escrito da Kamila**. Para completar a grade: trocar os posts em `src/data/instagram.ts` (`aprovado: true`) e rodar `node scripts/process-instagram.mjs` com o quadro em `_originais/instagram/`.

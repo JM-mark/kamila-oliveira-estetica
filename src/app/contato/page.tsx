@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { canon } from "@/lib/seo";
-import Link from "next/link";
+import AgendarButton from "@/components/AgendarButton";
 import WaButton from "@/components/WaButton";
-import { SITE } from "@/content/site";
+import { ENDERECO, ENDERECO_CONFIRMADO, HORARIO, HORARIO_CONFIRMADO, SITE } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Contato e localização | Kamila Oliveira Estética",
@@ -19,21 +19,38 @@ export default function Page() {
         <div className="grid cards-3" style={{ marginTop: 24 }}>
           <div className="card">
             <h3>WhatsApp</h3>
-            <p>O jeito mais rápido de agendar e tirar dúvidas.</p>
-            <div style={{ marginTop: 10 }}><WaButton origem="contato" label="Agendar pelo WhatsApp" /></div>
+            <p>O jeito mais rápido de tirar dúvidas e combinar o seu horário.</p>
+            <div style={{ marginTop: 10 }}><WaButton origem="contato" label="Falar no WhatsApp" /></div>
           </div>
           <div className="card">
             <h3>Onde fica</h3>
-            <p>{SITE.neighborhood}, região da {SITE.area}, {SITE.city}-{SITE.region}. O endereço completo vai pelo WhatsApp.</p>
-            <div style={{ marginTop: 10 }}><WaButton className="btn ghost" label="Pedir o endereço" message="Olá! Vim pelo site e gostaria de saber o endereço." origem="contato_endereco" /></div>
+            {ENDERECO_CONFIRMADO && ENDERECO ? (
+              <p>{ENDERECO}. {SITE.neighborhood}, região da {SITE.area}, {SITE.city}-{SITE.region}.</p>
+            ) : (
+              <>
+                <p>{SITE.neighborhood}, região da {SITE.area}, {SITE.city}-{SITE.region}. O endereço completo vai pelo WhatsApp.</p>
+                <div style={{ marginTop: 10 }}><WaButton className="btn ghost" label="Pedir o endereço" message="Olá! Vim pelo site e gostaria de saber o endereço." origem="contato_endereco" /></div>
+              </>
+            )}
           </div>
+          {HORARIO_CONFIRMADO && HORARIO ? (
+            <div className="card">
+              <h3>Horário</h3>
+              <p>{HORARIO}</p>
+            </div>
+          ) : null}
           <div className="card">
             <h3>Instagram</h3>
             <p>Acompanhe o dia a dia em {SITE.instagramHandle}.</p>
             <div style={{ marginTop: 10 }}><a className="btn ghost" href={SITE.instagram} target="_blank" rel="noopener noreferrer">Abrir o Instagram</a></div>
           </div>
         </div>
-        <p style={{ marginTop: 32 }}>Prefere montar o pedido passo a passo? <Link className="link" href="/agendar/">Use o agendamento guiado</Link>.</p>
+        {ENDERECO_CONFIRMADO && SITE.mapEmbed ? (
+          <iframe title="Mapa" src={SITE.mapEmbed} loading="lazy" style={{ border: 0, width: "100%", minHeight: 380, marginTop: 28 }} />
+        ) : null}
+        <div className="btn-row" style={{ marginTop: 36 }}>
+          <AgendarButton origem="contato" />
+        </div>
       </div>
     </section>
   );

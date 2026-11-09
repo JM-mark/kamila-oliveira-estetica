@@ -40,6 +40,16 @@ Fontes: revisao-1-e-site-v2.md e animacoes-v2.md (Downloads do Jeff). Decisões 
 - QA 09/11/2026 (Chrome e WebKit; 360/390/768/1440): sem rolagem horizontal, 1 H1 por página, CTA do hero visível sem rolar no celular, intro 1x por sessão e pulável, movimento reduzido e sem JS OK, alvos de toque >= 44 px, agendamento OK. LCP local do Chromium sem throttling 104 ms e CLS 0 (não é medida em 4G). Vídeo da Home não gerado (sem ffmpeg compatível): prints e sequência WebKit em `entrega/v2/`.
 - Bug achado no teste e corrigido: a animação da moldura se chamava `spin` e colidia com a do Tailwind (girava a caixa); renomeada para `frame-spin`.
 
+## Revisão 3 + v6 (09/11/2026): estado
+Fonte: revisao-3-e-prompt-v6.md (Downloads do Jeff). Estado: prévia local; NÃO commitado nem enviado ao GitHub até o aval do Jeff.
+- FEITO: todo "Agendar" leva a `/agendar/` (`AgendarButton`; botão flutuante também); botões de WhatsApp dizem "Falar no WhatsApp"; `?servico=relaxamento` pré-seleciona Massagem relaxante (`AGENDA_SERVICES`); diferenciais reescritos só com fato confirmado ("Parcelamento em até 4x" é TODO a confirmar); endereço e horário por flag (`ENDERECO_CONFIRMADO`, `HORARIO_CONFIRMADO` em `site.ts`), JSON-LD só com o que existe; `/contato` com cards e mapa por flag; cursor "Ver" nunca vai ao HTML estático (`useSyncExternalStore`); alt descritivo em todas as fotos de conteúdo (atmosfera marcada "imagem ilustrativa"); `StaggerGrid`.
+- Seção "No Instagram" (`src/components/InstagramSection.tsx`, dados em `src/data/instagram.ts`, imagens por `scripts/process-instagram.mjs`): grade estática, sem embed, entre Sobre e Como agendar. Só 3 posts (De2D2_8pfWl, DfPRk6hhjqa, Dez_PehBLC5): os outros 6 da lista têm cliente, antes e depois, preço ou conteúdo de outra conta. Os 3 dependem de aval escrito da Kamila. `EspacoSection` removida.
+- Não reproduzido da revisão: sobra de texto no hero, imagens de um só tamanho, falta de eyebrow em /sobre. `<meta name="next-size-adjust">` é do Next e fica.
+- Performance: no celular o shader Aurora inicia 4,2 s após o load (antes 1,2 s) para baixar o TBT. Lighthouse celular: 90 / 100 / 100 / 66 (SEO 66 só pelo noindex). Relatório e 27 prints em `entrega/v6/`, vídeos iPhone (WebKit) e desktop (Chromium) em `.webm` (~7 quadros/s, não é 60 fps).
+- QA: Chrome e WebKit, 360/390/768/1024/1280/1440, sem rolagem horizontal, 1 H1 por página, sem 404 (a única é a página /nao-existe/ de teste), noindex mantido.
+- Docs: `docs/pendencias-cliente.md` (substitui a-confirmar), `docs/creditos-imagens.md` e `docs/fotos-instagram.md` atualizados.
+- Pendências: aval do Jeff para commit e push; autorização escrita da Kamila (Instagram e foto do Sobre); mais 3 posts para completar 6; logo original; endereço, WhatsApp e horário; teste em iPhone físico.
+
 ## v5 (09/11/2026): prompt completo e definitivo do Jeff (substitui v2, v3 e v4)
 Estado: prévia local atualizada; NÃO commitado nem enviado ao GitHub (a prévia no ar é a v4).
 - Logo da Kamila (arquivo da agenda) no cabeçalho, rodapé, hero, preloader, ícones e og:image. Versões escura e clara; borboleta vetorizada (potrace) para o preloader.
@@ -51,7 +61,7 @@ Estado: prévia local atualizada; NÃO commitado nem enviado ao GitHub (a prévi
 - Lighthouse celular: Performance 91, Acessibilidade 100, Boas práticas 100, SEO 66 (só pelo noindex da prévia). LCP de laboratório 3,4 a 3,6 s; medição em 4G realista: 2,0 s (1ª visita com preloader) e 0,9 a 1,0 s depois. Relatório em `entrega/v5/`.
 - QA: Chrome e WebKit, 360/390/768/1024/1280/1440, tudo passou (ver `docs/checklist-v5.md`).
 - Entrega: prints e vídeos de tela (sequências costuradas, ~7 quadros/s) em `entrega/v5/`.
-- Pendências: aprovação do Jeff e da Kamila; fotos/originais e logo original; dados A CONFIRMAR em `docs/a-confirmar.md`; prompts do Profitize (opcional); vídeo de tela a 60 fps; commit e push.
+- Pendências: aprovação do Jeff e da Kamila; fotos/originais e logo original; dados A CONFIRMAR em `docs/pendencias-cliente.md`; prompts do Profitize (opcional); vídeo de tela a 60 fps; commit e push.
 
 ## v4 (09/11/2026): animações e fonte escolhidas pelo Jeff
 Fonte: site-v4-animacoes-fonte.md. Estado: ainda NÃO commitado nem enviado ao GitHub; a prévia no ar é a v3.
@@ -108,3 +118,4 @@ Meta de faturamento e linha de base; nome oficial; endereço (Mansueto Filizzola
 | 09/11/2026 | Revisão 2 + /site v3 + refinar tipografia | Imagens e vídeo de atmosfera tratados; 4 efeitos premium no ar e o 5º pronto (desligado); logo provisório com `<Logo />`; tipografia refinada; og:image, ícone Apple, 404, canonical só em produção; docs de créditos e pedido de arquivos; QA em Chrome e WebKit; prints em `entrega/v3/` | Foto real da Kamila e do espaço; arquivo do logo; vídeo de tela; Lighthouse 4G; shader Moldura; commit e push (não feitos) |
 | 09/11/2026 | /site v4 (trocar animações e fonte secundária; fotos do Instagram) | Hero expansivo, vídeo, Zoom Parallax, Lenis e cards sticky removidos; hero aurora e moldura em CSS (provisórios); Marcellus como secundária; seção "Por dentro do espaço" pronta e oculta; Instagram revisado; docs e prints em `entrega/v4/` | Prompts do Jeff para Aurora e Moldura (WebGL); fotos reais e logo da Kamila; commit e push (não feitos) |
 | 09/11/2026 | /site v5 (prompt completo) + logo da agenda + "não encher o site com fotos dela" | Logo real, shaders Aurora e Moldura, preloader, split-text, cursor, marquee, cortina, acordeão, diferenciais; correção do 404 do pré-carregamento; Lighthouse 91/100/100/66; QA em Chrome e WebKit; docs e checklist | Aprovação; logo original e fotos reais; dados A CONFIRMAR; commit e push (não feitos) |
+| 09/11/2026 | Revisão 3 + prompt v6 | Agendar unificado, seção No Instagram (3 posts), flags de endereço e horário, alts, cursor, contato, docs, QA, Lighthouse 90/100/100/66, prints e vídeos em `entrega/v6/` | Aval para commit e push; autorização da Kamila; mais 3 posts; logo original; endereço, WhatsApp, horário |

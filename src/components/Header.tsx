@@ -35,7 +35,7 @@ export default function Header() {
         {NAV.map((n) => (
           <Link key={n.href} href={n.href} onClick={() => setOpen(false)}>{n.label}</Link>
         ))}
-        <Link className="btn" href="/agendar/" onClick={() => setOpen(false)}>Agendar horário</Link>
+        <Link className="btn" href="/agendar/" onClick={() => setOpen(false)}>Agendar</Link>
       </nav>
     </header>
   );

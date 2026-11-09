@@ -24,6 +24,12 @@ export const SITE = {
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
 } as const;
 
+// Flags do /contato e do JSON-LD. Ligar só quando a Kamila confirmar (docs/pendencias-cliente.md).
+export const HORARIO_CONFIRMADO = false;
+export const HORARIO = ""; // TODO horário de atendimento (texto livre, ex.: "Segunda a sexta, 9h às 18h")
+export const ENDERECO_CONFIRMADO = false;
+export const ENDERECO = ""; // TODO endereço completo confirmado (a agenda diz "Rua Monsueto Filizzola 16"; reels citam "Guarapari 1456")
+
 export const NAV = [
   { href: "/depilacao-a-laser/", label: "Depilação a laser" },
   { href: "/limpeza-de-pele/", label: "Limpeza de pele" },

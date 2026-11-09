@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { asset } from "@/lib/asset";
 import type { Service } from "@/content/services";
 import GoldFrame from "./GoldFrame";
 import Photo from "./Photo";
 import Reveal from "./Reveal";
+import AgendarButton from "./AgendarButton";
 import WaButton from "./WaButton";
 
 export default function ServicePage({ s }: { s: Service }) {
@@ -17,11 +17,11 @@ export default function ServicePage({ s }: { s: Service }) {
             <h1>{s.title}</h1>
             <p className="lead">{s.intro}</p>
             <div className="btn-row">
-              <WaButton origem={`servico_${s.slug}_hero`} message={msg} label="Agendar pelo WhatsApp" />
-              <Link className="btn ghost" href={`/agendar/?servico=${s.slug}`}>Montar meu pedido</Link>
+              <AgendarButton origem={`servico_${s.slug}_hero`} servico={s.slug} />
+              <WaButton className="btn ghost" origem={`servico_${s.slug}_hero`} message={msg} label="Falar no WhatsApp" />
             </div>
           </div>
-          <GoldFrame><div className="in photo-box" data-cursor="ver"><Photo name={s.photo} priority sizes="(min-width: 900px) 40vw, 90vw" /></div></GoldFrame>
+          <GoldFrame><div className="in photo-box" data-cursor="ver"><Photo name={s.photo} alt={s.photoAlt} priority sizes="(min-width: 900px) 40vw, 90vw" /></div></GoldFrame>
         </div>
       </section>
 
@@ -45,7 +45,7 @@ export default function ServicePage({ s }: { s: Service }) {
             <h2 style={{ maxWidth: "18ch" }}>Conte o que você procura</h2>
             <p className="lead" style={{ marginTop: 14 }}>Escolha o serviço, diga o dia e o período que prefere e a gente confirma o horário pelo WhatsApp.</p>
             <div className="btn-row">
-              <WaButton origem={`servico_${s.slug}_final`} message={msg} label="Agendar pelo WhatsApp" />
+              <AgendarButton origem={`servico_${s.slug}_final`} servico={s.slug} />
             </div>
           </Reveal>
         </div>

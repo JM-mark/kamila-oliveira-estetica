@@ -11,12 +11,14 @@ export type Service = {
   seoDescription: string;
   note?: string;
   photo: string;
+  photoAlt: string;
 };
 
 export const SERVICES: Service[] = [
   {
     slug: "depilacao-a-laser",
     photo: "laser",
+    photoAlt: "Aparelho de depilação a laser sobre a pele, imagem ilustrativa",
     title: "Depilação a laser",
     short: "Áreas do rosto e do corpo, em sessões avulsas ou em pacotes de 10 sessões.",
     intro:
@@ -37,6 +39,7 @@ export const SERVICES: Service[] = [
   {
     slug: "limpeza-de-pele",
     photo: "pele",
+    photoAlt: "Mãos com algodão e produto de limpeza de pele, imagem ilustrativa",
     title: "Limpeza de pele",
     short: "Limpeza de pele em três níveis, revitalização labial e drenagem facial.",
     intro:
@@ -55,6 +58,7 @@ export const SERVICES: Service[] = [
   {
     slug: "estetica-corporal",
     photo: "corpo",
+    photoAlt: "Detalhe do colo com creme aplicado, imagem ilustrativa",
     title: "Estética corporal e relaxamento",
     short: "Lipo com as mãos, drenagem linfática, esfoliação corporal e massagem relaxante.",
     intro:
@@ -71,3 +75,11 @@ export const SERVICES: Service[] = [
 ];
 
 export const bySlug = (slug: string) => SERVICES.find((s) => s.slug === slug)!;
+
+/** Opções do agendamento guiado (4 etapas). Relaxamento é uma opção própria; a página dele é a de estética corporal. */
+export const AGENDA_SERVICES = [
+  { slug: "depilacao-a-laser", title: "Depilação a laser", items: SERVICES[0].items },
+  { slug: "limpeza-de-pele", title: "Limpeza de pele", items: SERVICES[1].items },
+  { slug: "estetica-corporal", title: "Estética corporal", items: ["Lipo com as mãos", "Drenagem linfática corporal", "Esfoliação corporal"] },
+  { slug: "relaxamento", title: "Relaxamento", items: ["Massagem relaxante"] },
+];

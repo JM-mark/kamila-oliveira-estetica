@@ -22,7 +22,7 @@ export default function Footer() {
           <div>
             <h2>Fale com a gente</h2>
             <ul>
-              <li><WaButton className="btn light" origem="rodape" label="Agendar pelo WhatsApp" /></li>
+              <li><WaButton className="btn light" origem="rodape" label="Falar no WhatsApp" /></li>
               <li><a href={SITE.instagram} target="_blank" rel="noopener noreferrer">Instagram {SITE.instagramHandle}</a></li>
             </ul>
           </div>

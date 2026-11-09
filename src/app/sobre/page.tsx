@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { canon } from "@/lib/seo";
 import GoldFrame from "@/components/GoldFrame";
-import WaButton from "@/components/WaButton";
+import AgendarButton from "@/components/AgendarButton";
 import { SITE } from "@/content/site";
 import { asset } from "@/lib/asset";
 import Photo from "@/components/Photo";
@@ -27,7 +27,7 @@ export default function Page() {
           <p style={{ color: "var(--suave)" }}>
             Para ver o dia a dia do espaço, acompanhe o Instagram <a className="link static" style={{ color: "var(--ouro-c)" }} href={SITE.instagram} target="_blank" rel="noopener noreferrer">{SITE.instagramHandle}</a>.
           </p>
-          <div className="btn-row"><WaButton origem="sobre" label="Agendar pelo WhatsApp" /></div>
+          <div className="btn-row"><AgendarButton origem="sobre" /></div>
         </div>
         <GoldFrame>
           <div className="in photo-box" data-cursor="ver">

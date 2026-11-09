@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-export default function WaButton({ label = "Agendar pelo WhatsApp", message = WA_DEFAULT, origem, className = "btn" }: Props) {
+export default function WaButton({ label = "Falar no WhatsApp", message = WA_DEFAULT, origem, className = "btn" }: Props) {
   return (
     <a
       className={className}

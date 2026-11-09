@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { canon } from "@/lib/seo";
-import EspacoSection from "@/components/EspacoSection";
 import GoldFrame from "@/components/GoldFrame";
 import Hero from "@/components/Hero";
+import InstagramSection from "@/components/InstagramSection";
 import Marquee from "@/components/Marquee";
 import Photo from "@/components/Photo";
 import Reveal from "@/components/Reveal";
 import ServicesAccordion from "@/components/ServicesAccordion";
 import SplitText from "@/components/SplitText";
+import AgendarButton from "@/components/AgendarButton";
 import WaButton from "@/components/WaButton";
 import { FOTO_SOBRE } from "@/content/espaco";
 import { SITE } from "@/content/site";
@@ -21,11 +22,12 @@ export const metadata: Metadata = {
   alternates: canon("/"),
 };
 
-// Só fatos confirmados (briefing e agenda da cliente). Sem anos de experiência, número de clientes ou prêmios.
+// Só fatos do briefing e do Instagram da cliente, com // TODO para ela confirmar. Sem anos de experiência, número de clientes ou prêmios.
 const DIFERENCIAIS = [
   { n: "01", t: "Protocolo autoral", d: "A Lipo com as mãos é um protocolo manual criado pela própria Kamila, voltado à redução de medidas." },
-  { n: "02", t: "Agendamento direto", d: "Você monta o pedido em poucos passos e ele chega pronto no WhatsApp. A confirmação do horário é feita pela clínica." },
-  { n: "03", t: "Perto de casa", d: "Atendimento em Santa Amélia, na região da Pampulha, em Belo Horizonte." },
+  // TODO a Kamila confirmar o parcelamento (visto em post do Instagram dela).
+  { n: "02", t: "Parcelamento em até 4x", d: "Os serviços podem ser parcelados em até 4x." },
+  { n: "03", t: "Na Pampulha, perto de você", d: "Atendimento em Santa Amélia, na região da Pampulha, em Belo Horizonte." },
 ];
 
 const PASSOS = [
@@ -70,8 +72,6 @@ export default function Home() {
         </div>
       </section>
 
-      <EspacoSection />
-
       <section className="section dark" id="sobre-kamila">
         <div className="wrap split">
           <Reveal>
@@ -94,6 +94,8 @@ export default function Home() {
         </div>
       </section>
 
+      <InstagramSection />
+
       <section className="section sand">
         <div className="wrap split">
           <div>
@@ -110,12 +112,12 @@ export default function Home() {
               ))}
             </div>
             <div className="btn-row">
-              <Link className="btn" href="/agendar/">Montar meu pedido</Link>
+              <AgendarButton origem="home_como_agendar" />
               <WaButton className="btn ghost" label="Falar no WhatsApp" origem="home_como_agendar" />
             </div>
           </div>
           <Reveal>
-            <div className="photo-box tall" data-cursor="ver"><Photo name="relaxamento" alt="" sizes="(min-width: 900px) 40vw, 90vw" /></div>
+            <div className="photo-box tall" data-cursor="ver"><Photo name="relaxamento" alt="Ambiente de relaxamento com luz suave, imagem ilustrativa" sizes="(min-width: 900px) 40vw, 90vw" /></div>
           </Reveal>
         </div>
       </section>
@@ -153,7 +155,7 @@ export default function Home() {
                 <h2 style={{ maxWidth: "22ch", margin: "0 auto 14px" }}>Seu horário começa numa mensagem</h2>
                 <p className="lead" style={{ margin: "0 auto" }}>Diga o que você procura e a gente confirma o dia e o período com você.</p>
                 <div className="btn-row" style={{ justifyContent: "center" }}>
-                  <WaButton className="btn light" origem="home_final" label="Agendar pelo WhatsApp" />
+                  <AgendarButton className="btn light" origem="home_final" />
                 </div>
               </div>
             </GoldFrame>

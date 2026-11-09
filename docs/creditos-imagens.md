@@ -32,5 +32,13 @@ Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença 
 
 Os demais quadros extraídos do Instagram estão só em `_originais/instagram/` (fora do git e do site). Ver `docs/fotos-instagram.md`.
 
+## Instagram da Kamila (seção "No Instagram", v6)
+Quadros dos reels, recortados em 1:1 com o tratamento de cor do site (`scripts/process-instagram.mjs`). Autor: Kamila Oliveira (@kamilaoliveiraestetica). Licença: nenhuma; uso **depende do aval escrito dela**.
+| Arquivo | Post | Uso |
+|---|---|---|
+| `instagram/oculos-*` | https://instagram.com/p/De2D2_8pfWl | Grade "No Instagram" |
+| `instagram/fala-*` | https://instagram.com/p/DfPRk6hhjqa | Grade "No Instagram" |
+| `instagram/retrato-*` | https://instagram.com/p/Dez_PehBLC5 | Grade "No Instagram" |
+
 ## Reais (Kamila)
-Nenhuma foto real no site ainda. Ver `docs/fotos-instagram.md` e `docs/pedido-arquivos-kamila.md`.
+Fora a seção acima e o recorte do Sobre, nenhuma foto real no site. Ver `docs/fotos-instagram.md` e `docs/pedido-arquivos-kamila.md`.
