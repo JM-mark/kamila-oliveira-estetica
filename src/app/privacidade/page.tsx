@@ -26,6 +26,9 @@ export default function Page() {
           <li><strong>Medição de visitas.</strong> Quando a medição estiver ativada, o site conta acessos e cliques nos botões de contato para entender o que ajuda quem nos procura. Esses dados não incluem seu nome.</li>
         </ul>
 
+        <h2>Serviços de terceiros</h2>
+        <p>A página de contato mostra um mapa do Google Maps. Ao carregá-lo, o Google pode registrar dados técnicos da sua visita (como o endereço de IP), conforme a política de privacidade do próprio Google. Os links para o Instagram e o WhatsApp abrem os respectivos serviços, com as regras de cada um.</p>
+
         <h2>Para que usamos</h2>
         <p>Para responder ao seu pedido de agendamento, tirar dúvidas e melhorar o site.</p>
 

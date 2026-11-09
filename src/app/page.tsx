@@ -12,7 +12,7 @@ import SplitText from "@/components/SplitText";
 import AgendarButton from "@/components/AgendarButton";
 import WaButton from "@/components/WaButton";
 import { FOTO_SOBRE } from "@/content/espaco";
-import { SITE } from "@/content/site";
+import { ENDERECO, SITE } from "@/content/site";
 import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ const DIFERENCIAIS = [
   { n: "01", t: "Protocolo autoral", d: "A Lipo com as mãos é um protocolo manual criado pela própria Kamila, voltado à redução de medidas." },
   // TODO a Kamila confirmar o parcelamento (visto em post do Instagram dela).
   { n: "02", t: "Parcelamento em até 4x", d: "Os serviços podem ser parcelados em até 4x." },
-  { n: "03", t: "Na Pampulha, perto de você", d: "Atendimento em Santa Amélia, na região da Pampulha, em Belo Horizonte." },
+  { n: "03", t: "Fácil de chegar", d: "Esquina com a Avenida Guarapari, em Santa Amélia." },
 ];
 
 const PASSOS = [
@@ -83,10 +83,10 @@ export default function Home() {
           </Reveal>
           <div>
             <Reveal><p className="eyebrow">Sobre a Kamila</p></Reveal>
-            <SplitText text="Luxo é se sentir bem todos os dias." as="h2" className="quote" />
+            <SplitText text="Conheça quem cuida de você" as="h2" />
             <Reveal>
               <p className="lead">
-                Kamila Oliveira atende em {SITE.neighborhood}, na região da {SITE.area}. Entre os serviços está a Lipo com as mãos, protocolo manual criado por ela.
+                Conheça a Kamila Oliveira, o jeito como ela trabalha e o que cada serviço oferece.
               </p>
               <div className="btn-row"><Link className="btn ghost" href="/sobre/">Conhecer a Kamila</Link></div>
             </Reveal>
@@ -128,21 +128,18 @@ export default function Home() {
             <Reveal><p className="eyebrow">Onde estamos</p></Reveal>
             <SplitText text={`${SITE.neighborhood}, região da ${SITE.area}`} as="h2" />
             <Reveal>
-              <p className="lead" style={{ marginTop: 14 }}>Atendimento em {SITE.city}. Peça o endereço completo pelo WhatsApp.</p>
+              <p className="lead" style={{ marginTop: 14 }}>{ENDERECO}. {SITE.neighborhood}, {SITE.city}-{SITE.region}.</p>
               <div className="btn-row">
-                <WaButton label="Pedir o endereço" message="Olá! Vim pelo site e gostaria de saber o endereço." origem="home_local" />
+                <a className="btn ghost" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">Como chegar</a>
               </div>
             </Reveal>
           </div>
-          {SITE.mapEmbed ? (
-            <iframe title="Mapa" src={SITE.mapEmbed} loading="lazy" style={{ border: 0, width: "100%", minHeight: 380 }} />
-          ) : (
-            <div className="place" aria-hidden="true">
-              <span className="display">Pampulha</span>
-              <span className="rule" />
-              <span className="small">Santa Amélia · Belo Horizonte</span>
-            </div>
-          )}
+          <Reveal>
+              <figure className="place-photo" data-cursor="ver">
+                <Photo name="pampulha" alt="Igreja de São Francisco de Assis, na Pampulha, ao pôr do sol, imagem ilustrativa" sizes="(min-width: 900px) 50vw, 92vw" />
+                <figcaption>Pampulha · Belo Horizonte</figcaption>
+              </figure>
+            </Reveal>
         </div>
       </section>
 
@@ -153,7 +150,7 @@ export default function Home() {
               <div className="in cta-card">
                 <p className="eyebrow" style={{ marginInline: "auto" }}>Agende</p>
                 <h2 style={{ maxWidth: "22ch", margin: "0 auto 14px" }}>Seu horário começa numa mensagem</h2>
-                <p className="lead" style={{ margin: "0 auto" }}>Diga o que você procura e a gente confirma o dia e o período com você.</p>
+                <p className="lead" style={{ margin: "0 auto" }}>Conte o que você procura e receba a resposta pelo WhatsApp.</p>
                 <div className="btn-row" style={{ justifyContent: "center" }}>
                   <AgendarButton className="btn light" origem="home_final" />
                 </div>

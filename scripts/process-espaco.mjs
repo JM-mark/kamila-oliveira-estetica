@@ -15,6 +15,7 @@ const FOTOS = {
   sorriso: { src: "ig-Dfh3HJxJwZi-a.jpg", rect: [10, 170, 400, 640], bright: 1, sat: 0.95, lin: [1, 0] },
   jaleco: { src: "ig-DeuO01HRLIg-arte.jpg", rect: [0, 60, 640, 960], bright: 0.95, sat: 0.92, lin: [1.04, -4] },
   arlivre: { src: "ig-DfH1JMgxp9O-arte.jpg", rect: [20, 100, 590, 1060], bright: 0.95, sat: 0.9, lin: [1.04, -4] },
+  hero: { src: "ig-DfH1JMgxp9O-arte.jpg", rect: [20, 70, 590, 790], bright: 0.97, sat: 0.92, lin: [1.04, -4] },
   medidas: { src: "ig-DeuMdb0xdmz-arte.jpg", rect: [940, 60, 500, 840], bright: 1, sat: 0.95, lin: [1, 0] },
 };
 
@@ -28,6 +29,7 @@ async function build(nome, f, w) {
 }
 
 for (const [nome, f] of Object.entries(FOTOS)) {
+  if (process.argv[2] && process.argv[2] !== nome) continue;
   for (const w of WIDTHS) {
     const img = await build(nome, f, w);
     await img.clone().avif({ quality: 52, effort: 4 }).toFile(`${OUT}/${nome}-${w}.avif`);

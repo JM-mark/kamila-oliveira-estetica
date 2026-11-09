@@ -25,7 +25,10 @@ export default function Page() {
           <div className="card">
             <h3>Onde fica</h3>
             {ENDERECO_CONFIRMADO && ENDERECO ? (
-              <p>{ENDERECO}. {SITE.neighborhood}, região da {SITE.area}, {SITE.city}-{SITE.region}.</p>
+              <>
+                <p>{ENDERECO}. {SITE.neighborhood}, região da {SITE.area}, {SITE.city}-{SITE.region}.</p>
+                <div style={{ marginTop: 10 }}><a className="btn ghost" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">Como chegar</a></div>
+              </>
             ) : (
               <>
                 <p>{SITE.neighborhood}, região da {SITE.area}, {SITE.city}-{SITE.region}. O endereço completo vai pelo WhatsApp.</p>

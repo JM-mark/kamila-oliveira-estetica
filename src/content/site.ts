@@ -16,7 +16,8 @@ export const SITE = {
   agendaUrl: "https://agendeagora.web.app/kamila-oliveira-estetica",
   agendaEnabled: false,
   // Endereço confirmado: colar aqui o embed do mapa para ligar o bloco "Onde estamos". Vazio = só pede o endereço pelo WhatsApp.
-  mapEmbed: "",
+  mapEmbed: "https://www.google.com/maps?q=Rua%20Monsueto%20Filizzola%2C%2016%2C%20Santa%20Am%C3%A9lia%2C%20Belo%20Horizonte%2C%20MG&output=embed",
+  mapsLink: "https://www.google.com/maps/search/?api=1&query=Rua%20Monsueto%20Filizzola%2C%2016%2C%20Santa%20Am%C3%A9lia%2C%20Belo%20Horizonte%2C%20MG",
   // Retrato real da Kamila (só com aval): troca a foto de atmosfera na seção Sobre.
   kamilaPhoto: "",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
@@ -27,8 +28,10 @@ export const SITE = {
 // Flags do /contato e do JSON-LD. Ligar só quando a Kamila confirmar (docs/pendencias-cliente.md).
 export const HORARIO_CONFIRMADO = false;
 export const HORARIO = ""; // TODO horário de atendimento (texto livre, ex.: "Segunda a sexta, 9h às 18h")
-export const ENDERECO_CONFIRMADO = false;
-export const ENDERECO = ""; // TODO endereço completo confirmado (a agenda diz "Rua Monsueto Filizzola 16"; reels citam "Guarapari 1456")
+export const ENDERECO_CONFIRMADO = true;
+// Fonte: arte do Instagram da própria Kamila ("Rua Monsueto Filizzola, 16, Santa Amélia, esquina com Avenida Guarapari").
+// TODO a Kamila confirmar a grafia (o briefing diz "Mansueto") e se "Guarapari 1456", citado em reels, é outro ponto.
+export const ENDERECO = "Rua Monsueto Filizzola, 16, esquina com a Avenida Guarapari";
 
 export const NAV = [
   { href: "/depilacao-a-laser/", label: "Depilação a laser" },
@@ -37,3 +40,8 @@ export const NAV = [
   { href: "/sobre/", label: "Sobre" },
   { href: "/contato/", label: "Contato" },
 ] as const;
+
+// Agendamento: quando a Kamila confirmar o expediente, preencha aqui e o calendário passa a bloquear os dias fechados e a mostrar horários.
+// TODO dias fechados (0 = domingo ... 6 = sábado) e horários de início, ex.: ["09:00", "10:00", "14:00"]. Vazio = só dia e período.
+export const AGENDA_DIAS_FECHADOS: number[] = [];
+export const AGENDA_HORARIOS: string[] = [];

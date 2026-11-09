@@ -15,6 +15,7 @@ const FOTOS = {
   corpo: { src: "_originais/photo-20469562.jpg", brightness: 0.82, sat: 0.85 },
   relaxamento: { src: "_originais/photo-6417924.jpg", brightness: 0.68, sat: 0.62, warm: 0.42 },
   marmore: { src: "_originais/photo-6788338.jpg", brightness: 0.55, sat: 0.55 },
+  pampulha: { src: "_originais/photo-32163514.jpg", brightness: 0.74, sat: 0.32, warm: 0.45 },
   marmore2: { src: "_originais/photo-36327398.jpg", brightness: 0.4, sat: 0.2 },
 };
 
@@ -28,6 +29,7 @@ async function grade(file, w, { brightness, sat, warm: warmA = 0.2 }) {
 }
 
 for (const [nome, cfg] of Object.entries(FOTOS)) {
+  if (process.argv[2] && process.argv[2] !== nome) continue;
   for (const w of WIDTHS) {
     const img = await grade(cfg.src, w, cfg);
     await img.clone().avif({ quality: 48, effort: 4 }).toFile(`${OUT}/${nome}-${w}.avif`);

@@ -11,6 +11,7 @@ Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença 
 | `photos/relaxamento-*` | Pexels foto 6417924 | Pavel Danilyuk | https://www.pexels.com/photo/person-hands-relaxation-faceless-6417924/ | Pexels | Painel "Relaxamento" | atmosfera |
 | `photos/marmore-*` | Pexels foto 6788338 | Polina | https://www.pexels.com/photo/close-up-shot-of-a-marble-6788338/ | Pexels | Fundo da seção "Onde estamos" | textura |
 | `photos/marmore2-*` | Pexels foto 36327398 | Andrea Prochilo | https://www.pexels.com/photo/intricate-black-marble-texture-with-white-veins-36327398/ | Pexels | Fundo de "Sobre" e das páginas de serviço | textura |
+| `photos/pampulha-*` | Pexels foto 32163514 | Jerson Martins | https://www.pexels.com/photo/modern-church-architecture-at-sunset-32163514/ | Pexels | "Onde estamos" (lugar, imagem ilustrativa) | atmosfera |
 | `og.png` | montagem própria: marmore + logo | Kalenza | | | Imagem de compartilhamento | |
 
 ## Da lista, mas NÃO usadas (e por quê)
@@ -28,6 +29,7 @@ Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença 
 | Arquivo no site | Origem | Onde entra | Condição |
 |---|---|---|---|
 | `public/brand/kamila-*` (logo, borboleta e assinatura, versões escura e clara, em WebP) | Logo da Kamila, extraído da página de agendamento dela (agendeagora, 512x512), com fundo limpo e recorte, sem redesenho | Cabeçalho, rodapé, hero, preloader, ícones e imagem de compartilhamento | Provisório até o arquivo original chegar |
+| `public/espaco/hero-*` | Arte do Instagram (post DfH1JMgxp9O), recorte só da Kamila, sem texto | Hero da Home | **Precisa do aval escrito dela** |
 | `public/espaco/jaleco-*` | Quadro do Instagram da Kamila (post DeuO01HRLIg), recorte da foto dela sem o texto da arte | Seção Sobre e página /sobre/ | **Precisa do aval escrito dela** |
 
 Os demais quadros extraídos do Instagram estão só em `_originais/instagram/` (fora do git e do site). Ver `docs/fotos-instagram.md`.
