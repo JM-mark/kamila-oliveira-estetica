@@ -32,3 +32,17 @@ Os links da revisão (Profitize, Awwwards, recent.design, Siteinspire, Sitereel,
 ## Pendente
 - Fotos reais aprovadas pela Kamila e atmosfera Pexels/Pixabay (registrar em `docs/creditos-imagens.md`).
 - Vídeo de atmosfera do hero (`SITE.heroVideo`).
+
+
+## v3 (revisão 2, 09/11/2026)
+- **Logo PROVISÓRIO.** Decisão do Jeff: o logo atual da Kamila (perfil do Instagram) é o logo da prévia. Não consegui o arquivo (o Instagram exige login e o avatar público é pequeno demais), então ficou a composição tipográfica atual com `// TODO logo-original`. Tudo passa pelo componente `<Logo />`; trocar os arquivos de `public/brand/` (mesmos nomes) basta. A identidade do zero (/brand) vem depois e já está vendida.
+- **Imagens.** Atmosfera do Pexels com tratamento único de cor (`scripts/process-photos.mjs`), AVIF e WebP com `srcset`; vídeo do hero de 3,89 MB com poster. Créditos em `docs/creditos-imagens.md`. Fotos reais: `docs/fotos-instagram.md` e `docs/pedido-arquivos-kamila.md`.
+- **Os 5 efeitos premium:**
+  1. Intro de marca: feito (SVG e CSS).
+  2. Hero com expansão e vídeo: feito (do zero, sticky e clip-path; no celular, tela cheia).
+  3. Acordeão de serviços com foto: feito.
+  4. O espaço (Zoom Parallax + Lenis): componente e Lenis prontos; a seção fica DESLIGADA (`SITE.spacePhoto` vazio) porque o centro precisa ser foto real do espaço, aprovada. Testada ligada com uma foto provisória.
+  5. Moldura de ouro: feita em CSS (`conic-gradient`) com a luz apontando para o cursor no desktop e borda estática no celular. O shader WebGL do Profitize NÃO foi usado.
+- **Apoio:** cards empilhados, botões com onda dourada, sublinhado dourado. Text Rotate e Polaroid ficaram fora, como pedido (o Text Rotate da v2 foi removido do hero).
+- **Detalhes:** favicon e ícone Apple, imagem de compartilhamento 1200x630, 404 no estilo, transição suave entre páginas (opacidade), foco visível, canonical só em produção.
+- **Tipografia:** refinada em toda a escala (ver DESIGN.md).

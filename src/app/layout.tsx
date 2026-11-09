@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 import Intro from "@/components/Intro";
+import SmoothScroll from "@/components/SmoothScroll";
 import { SITE } from "@/content/site";
 
 const display = Gilda_Display({ subsets: ["latin"], weight: "400", variable: "--font-display", display: "swap" });
@@ -18,7 +19,15 @@ export const metadata: Metadata = {
   description:
     "Depilação a laser, limpeza de pele e protocolos corporais em Santa Amélia, região da Pampulha, Belo Horizonte. Agende pelo WhatsApp.",
   robots: SITE.indexable ? { index: true, follow: true } : { index: false, follow: false },
-  openGraph: { type: "website", locale: "pt_BR", siteName: SITE.name },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: SITE.name,
+    title: "Kamila Oliveira Estética | Estética na Pampulha, BH",
+    description: "Depilação a laser, limpeza de pele e protocolos corporais em Santa Amélia, Pampulha, Belo Horizonte.",
+    images: [{ url: "og.png", width: 1200, height: 630, alt: "Kamila Oliveira Estética" }],
+  },
+  twitter: { card: "summary_large_image", images: ["og.png"] },
 };
 
 const jsonLd = {
@@ -50,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Intro />
+        <SmoothScroll />
         <a className="skip" href="#conteudo">Ir para o conteúdo</a>
         <Header />
         <main id="conteudo">{children}</main>

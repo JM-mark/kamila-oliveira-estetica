@@ -105,7 +105,7 @@ export default function Stepper() {
             <span className="hint">O horário final é confirmado pela clínica.</span>
           </div>
           <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
-            <legend style={{ fontWeight: 600, fontSize: 15 }}>Período</legend>
+            <legend className="lab">Período</legend>
             <div className="opts">
               {PERIODOS.map((p) => (
                 <label key={p} className="opt">

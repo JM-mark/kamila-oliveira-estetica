@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canon } from "@/lib/seo";
 import ServicePage from "@/components/ServicePage";
 import { bySlug } from "@/content/services";
 
@@ -7,7 +8,7 @@ const s = bySlug("limpeza-de-pele");
 export const metadata: Metadata = {
   title: s.seoTitle,
   description: s.seoDescription,
-  alternates: { canonical: "/limpeza-de-pele/" },
+  alternates: canon("/limpeza-de-pele/"),
 };
 
 export default function Page() {

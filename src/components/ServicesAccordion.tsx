@@ -4,21 +4,23 @@ import Link from "next/link";
 import { useState } from "react";
 import { SERVICES } from "@/content/services";
 import { track } from "@/lib/track";
+import Photo from "./Photo";
 
 const PANELS = [
-  { n: "01", title: "Depilação a laser", slug: "depilacao-a-laser", items: SERVICES[0].items },
-  { n: "02", title: "Limpeza de pele", slug: "limpeza-de-pele", items: SERVICES[1].items },
-  { n: "03", title: "Estética corporal", slug: "estetica-corporal", items: ["Lipo com as mãos", "Drenagem linfática corporal", "Esfoliação corporal"] },
-  { n: "04", title: "Relaxamento", slug: "estetica-corporal", items: ["Massagem relaxante"] },
+  { n: "01", title: "Depilação a laser", slug: "depilacao-a-laser", photo: "laser", items: SERVICES[0].items },
+  { n: "02", title: "Limpeza de pele", slug: "limpeza-de-pele", photo: "pele", items: SERVICES[1].items },
+  { n: "03", title: "Estética corporal", slug: "estetica-corporal", photo: "corpo", items: ["Lipo com as mãos", "Drenagem linfática corporal", "Esfoliação corporal"] },
+  { n: "04", title: "Relaxamento", slug: "estetica-corporal", photo: "relaxamento", items: ["Massagem relaxante"] },
 ];
 
-/** Acordeão de serviços: o painel aberto mostra as áreas e o CTA. O laser abre por padrão. No celular vira lista empilhada. */
+/** Acordeão de serviços com foto: o painel aberto mostra as áreas e o CTA. O laser abre por padrão. No celular vira lista empilhada. */
 export default function ServicesAccordion() {
   const [open, setOpen] = useState(0);
   return (
     <div className="acc">
       {PANELS.map((p, i) => (
         <div key={p.n} className="acc-panel" data-open={open === i}>
+          <Photo name={p.photo} className="acc-img" sizes="(min-width: 900px) 50vw, 100vw" />
           <button
             className="acc-head"
             aria-expanded={open === i}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { NAV } from "@/content/site";
-import { asset } from "@/lib/asset";
+import Logo from "./Logo";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -19,8 +19,7 @@ export default function Header() {
     <header className="header">
       <div className="wrap bar">
         <Link href="/" aria-label="Kamila Oliveira Estética, página inicial" onClick={() => setOpen(false)}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="logo" src={asset("/brand/kamila-horizontal-negativo.svg")} alt="Kamila Oliveira Estética" width={195} height={40} />
+          <Logo height={40} />
         </Link>
         <nav className="nav-links" aria-label="Principal">
           {NAV.map((n) => (

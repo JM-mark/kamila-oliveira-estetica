@@ -18,8 +18,12 @@ export const SITE = {
   // Endereço confirmado: colar aqui o embed do mapa para ligar o bloco "Onde estamos". Vazio = só pede o endereço pelo WhatsApp.
   mapEmbed: "",
   // Vídeo de atmosfera do hero (mp4 em /public/media) e poster. Vazio = fundo de luz e grão.
-  heroVideo: "",
-  heroPoster: "",
+  heroVideo: "/media/hero.mp4",
+  heroPoster: "/photos/hero_poster-1280.webp",
+  // Foto real do espaço (só com aval da Kamila): liga a seção "O espaço" com zoom parallax. Vazio = seção desligada.
+  spacePhoto: "",
+  // Retrato real da Kamila (só com aval): troca a foto de atmosfera na seção Sobre.
+  kamilaPhoto: "",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   indexable: process.env.NEXT_PUBLIC_INDEXABLE === "true",
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",

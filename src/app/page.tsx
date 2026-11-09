@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { canon } from "@/lib/seo";
+import GoldFrame from "@/components/GoldFrame";
 import HeroExpand from "@/components/HeroExpand";
-import PhotoSlot from "@/components/PhotoSlot";
+import Photo from "@/components/Photo";
 import Reveal from "@/components/Reveal";
 import ServicesAccordion from "@/components/ServicesAccordion";
 import WaButton from "@/components/WaButton";
+import ZoomParallax from "@/components/ZoomParallax";
 import { SITE } from "@/content/site";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Estética na Pampulha, BH: laser e limpeza de pele | Kamila Oliveira",
   description:
     "Depilação a laser, limpeza de pele e protocolos corporais em Santa Amélia, região da Pampulha, em Belo Horizonte. Agende pelo WhatsApp.",
-  alternates: { canonical: "/" },
+  alternates: canon("/"),
 };
 
 const PASSOS = [
@@ -21,6 +25,8 @@ const PASSOS = [
 ];
 
 export default function Home() {
+  const marble = { ["--bg" as string]: `url(${asset("/photos/marmore-1280.webp")})` };
+  const marble2 = { ["--bg" as string]: `url(${asset("/photos/marmore2-1280.webp")})` };
   return (
     <>
       <HeroExpand />
@@ -35,6 +41,19 @@ export default function Home() {
           <ServicesAccordion />
         </div>
       </section>
+
+      {SITE.spacePhoto ? (
+        <ZoomParallax
+          around={["laser", "pele", "corpo", "relaxamento", "marmore"]}
+          center={
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={asset(SITE.spacePhoto)} alt="O espaço da Kamila Oliveira Estética" loading="lazy" />
+              <p className="zp-text display">Um espaço feito para você desacelerar.</p>
+            </>
+          }
+        />
+      ) : null}
 
       <section className="section sand">
         <div className="wrap">
@@ -57,10 +76,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section dark">
+      <section className="section dark marble" style={marble2}>
         <div className="wrap split">
           <Reveal>
-            <div className="frame"><div className="in"><PhotoSlot /></div></div>
+            <GoldFrame>
+              <div className="in photo-box">
+                {SITE.kamilaPhoto ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={asset(SITE.kamilaPhoto)} alt="Kamila Oliveira" loading="lazy" />
+                ) : (
+                  <Photo name="corpo" sizes="(min-width: 900px) 40vw, 90vw" />
+                )}
+              </div>
+            </GoldFrame>
           </Reveal>
           <Reveal>
             <p className="eyebrow">Sobre a Kamila</p>
@@ -73,7 +101,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section dark marble" style={marble}>
         <div className="wrap split rev">
           <Reveal>
             <p className="eyebrow">Onde estamos</p>
@@ -84,9 +112,13 @@ export default function Home() {
             </div>
           </Reveal>
           {SITE.mapEmbed ? (
-            <iframe title="Mapa" src={SITE.mapEmbed} loading="lazy" style={{ border: 0, width: "100%", minHeight: 360 }} />
+            <iframe title="Mapa" src={SITE.mapEmbed} loading="lazy" style={{ border: 0, width: "100%", minHeight: 380 }} />
           ) : (
-            <div className="photo-slot" style={{ aspectRatio: "16 / 11" }} role="presentation" />
+            <div className="place" aria-hidden="true">
+              <span className="display">Pampulha</span>
+              <span className="rule" />
+              <span className="small">Santa Amélia · Belo Horizonte</span>
+            </div>
           )}
         </div>
       </section>
@@ -94,7 +126,7 @@ export default function Home() {
       <section className="section dark" style={{ textAlign: "center" }}>
         <div className="wrap">
           <Reveal>
-            <div className="frame" style={{ maxWidth: 820, margin: "0 auto" }}>
+            <GoldFrame style={{ maxWidth: 820, margin: "0 auto" }}>
               <div className="in" style={{ padding: "clamp(40px,7vw,88px) 24px" }}>
                 <p className="eyebrow" style={{ marginInline: "auto" }}>Agende</p>
                 <h2 style={{ maxWidth: "22ch", margin: "0 auto 14px" }}>Seu horário começa numa mensagem</h2>
@@ -103,7 +135,7 @@ export default function Home() {
                   <WaButton className="btn light" origem="home_final" label="Agendar pelo WhatsApp" />
                 </div>
               </div>
-            </div>
+            </GoldFrame>
           </Reveal>
         </div>
       </section>

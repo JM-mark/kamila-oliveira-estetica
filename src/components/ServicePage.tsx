@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 import type { Service } from "@/content/services";
-import PhotoSlot from "./PhotoSlot";
+import GoldFrame from "./GoldFrame";
+import Photo from "./Photo";
 import Reveal from "./Reveal";
 import WaButton from "./WaButton";
 
@@ -19,11 +21,11 @@ export default function ServicePage({ s }: { s: Service }) {
               <Link className="btn ghost" href={`/agendar/?servico=${s.slug}`}>Montar meu pedido</Link>
             </div>
           </div>
-          <div className="frame"><div className="in"><PhotoSlot /></div></div>
+          <GoldFrame><div className="in photo-box"><Photo name={s.photo} priority sizes="(min-width: 900px) 40vw, 90vw" /></div></GoldFrame>
         </div>
       </section>
 
-      <section className="section dark" style={{ paddingTop: 0 }}>
+      <section className="section dark marble" style={{ paddingTop: 0, ["--bg" as string]: `url(${asset("/photos/marmore2-1280.webp")})` }}>
         <div className="wrap">
           <Reveal>
             <hr className="gold-rule" />

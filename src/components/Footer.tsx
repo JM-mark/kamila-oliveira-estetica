@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { NAV, SITE } from "@/content/site";
-import { asset } from "@/lib/asset";
+import Logo from "./Logo";
 import WaButton from "./WaButton";
 
 export default function Footer() {
@@ -9,8 +9,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="cols">
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="logo" src={asset("/brand/kamila-horizontal-negativo.svg")} alt="Kamila Oliveira Estética" width={234} height={48} />
+            <div style={{ marginBottom: 18 }}><Logo height={48} /></div>
             <p>Estética facial e corporal em {SITE.neighborhood}, região da {SITE.area}, {SITE.city}.</p>
           </div>
           <div>

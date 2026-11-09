@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canon } from "@/lib/seo";
 import Link from "next/link";
 import WaButton from "@/components/WaButton";
 import { SITE } from "@/content/site";
@@ -6,7 +7,7 @@ import { SITE } from "@/content/site";
 export const metadata: Metadata = {
   title: "Contato e localização | Kamila Oliveira Estética",
   description: "Fale com a Kamila Oliveira Estética pelo WhatsApp. Atendimento em Santa Amélia, região da Pampulha, Belo Horizonte.",
-  alternates: { canonical: "/contato/" },
+  alternates: canon("/contato/"),
 };
 
 export default function Page() {

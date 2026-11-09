@@ -10,11 +10,13 @@ export type Service = {
   seoTitle: string;
   seoDescription: string;
   note?: string;
+  photo: string;
 };
 
 export const SERVICES: Service[] = [
   {
     slug: "depilacao-a-laser",
+    photo: "laser",
     title: "Depilação a laser",
     short: "Áreas do rosto e do corpo, em sessões avulsas ou em pacotes de 10 sessões.",
     intro:
@@ -34,6 +36,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "limpeza-de-pele",
+    photo: "pele",
     title: "Limpeza de pele",
     short: "Limpeza de pele em três níveis, revitalização labial e drenagem facial.",
     intro:
@@ -51,6 +54,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "estetica-corporal",
+    photo: "corpo",
     title: "Estética corporal e relaxamento",
     short: "Lipo com as mãos, drenagem linfática, esfoliação corporal e massagem relaxante.",
     intro:

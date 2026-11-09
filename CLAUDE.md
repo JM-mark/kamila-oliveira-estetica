@@ -21,6 +21,7 @@ Pacote: identidade + site (/brand + /site). Idioma: PT. Briefing completo: `docs
 - Duas rotas de identidade antes de fechar.
 - Sem promessa de resultado, sem "garantido", sem "definitiva"; sem preços no site (a confirmar com a cliente).
 - Prévia com noindex/nofollow e robots Disallow: /. Nada em produção sem aval do Jeff.
+- LOGO PROVISÓRIO (decisão do Jeff, 09/11/2026): usar o logo atual da Kamila (perfil do Instagram) assim que o arquivo original chegar; até lá fica a composição tipográfica atual (`// TODO logo-original`). Não redesenhar o logo dela. Tudo passa pelo componente `<Logo />`; a identidade do zero (/brand) vem depois.
 - Agendamento guiado em etapas que abre o WhatsApp; link da agenda online por flag, só após a Kamila reativá-la.
 
 ## Revisão 1 (09/11/2026): estado por item
@@ -38,6 +39,22 @@ Fontes: revisao-1-e-site-v2.md e animacoes-v2.md (Downloads do Jeff). Decisões 
 - Não mexer: agendamento em 4 etapas, sem preços, sem promessa de resultado, títulos/descrições locais, noindex.
 - QA 09/11/2026 (Chrome e WebKit; 360/390/768/1440): sem rolagem horizontal, 1 H1 por página, CTA do hero visível sem rolar no celular, intro 1x por sessão e pulável, movimento reduzido e sem JS OK, alvos de toque >= 44 px, agendamento OK. LCP local do Chromium sem throttling 104 ms e CLS 0 (não é medida em 4G). Vídeo da Home não gerado (sem ffmpeg compatível): prints e sequência WebKit em `entrega/v2/`.
 - Bug achado no teste e corrigido: a animação da moldura se chamava `spin` e colidia com a do Tailwind (girava a caixa); renomeada para `frame-spin`.
+
+## Revisão 2 (09/11/2026): estado por item
+Fonte: revisao-2-e-site-v3.md (Downloads do Jeff). Estado: ainda NÃO commitado nem enviado ao GitHub.
+- P1.1 imagens: PARCIAL. Feitas: vídeo de atmosfera no hero (Pexels 3998272, 3,89 MB, com poster), foto tratada em cada serviço (acordeão e páginas), mármore em "Onde estamos", "Sobre" e páginas de serviço; créditos em `docs/creditos-imagens.md`. Sem imagem: cards de "Como agendar" e o card do CTA final (de propósito, tipográficos). A foto real da Kamila no "Sobre" está PENDENTE (hoje atmosfera na moldura, sem legenda).
+- P1.2 efeitos: 4 de 5 no ar (intro de marca, hero com expansão e vídeo, acordeão com foto, moldura de ouro em CSS com luz que segue o cursor) + Zoom Parallax e Lenis prontos, com a seção "O espaço" DESLIGADA (`SITE.spacePhoto` vazio; exige foto real do espaço). O shader WebGL da Moldura (Profitize) não foi usado. Text Rotate removido, como pedido. Vídeo de tela: não gerado (sem ffmpeg compatível); entregues prints e sequência WebKit em `entrega/v3/`.
+- P1.3 logo: FEITO conforme decisão do Jeff (provisório, `<Logo />`, `// TODO logo-original`). O arquivo da Kamila não foi obtido (Instagram exige login); pedido pronto em `docs/pedido-arquivos-kamila.md`.
+- P2.1 acordeão com foto por serviço e laser aberto: FEITO.
+- P2.2 foto real da Kamila no "Sobre": PENDENTE (depende do arquivo e do aval). `SITE.kamilaPhoto`.
+- P2.3 "Onde estamos": FEITO (mármore; mapa por flag `SITE.mapEmbed`).
+- P3.1 canonical só na produção: FEITO (nenhum canonical na prévia). Favicon e ícone Apple: FEITOS. og:image 1200x630 com a marca: FEITA.
+- Pedido extra do Jeff: tipografia refinada em toda a escala, incluindo os textos secundários (escala e papéis em `DESIGN.md`).
+- Correções de teste: a moldura vazava e o rodapé estourava a 768 px (botão em caixa-alta); o mármore era sobrescrito por `.section.dark`; botão invisível em seção escura; legenda "Período" e marcadores da política. Todos corrigidos.
+- Instagram: `docs/fotos-instagram.md` com os 9 posts e os 2 a evitar. Nada baixado (exige login). A legenda de um post promete resultado ("RESOLVE vários dos seus problemas"): não pode ir ao site.
+- QA 09/11/2026 (Chrome e WebKit; 360/390/768/1440): sem rolagem horizontal, 1 H1 por página, CTA do hero visível sem rolar no celular, intro 1x e pulável, movimento reduzido, sem JS, alvos de toque >= 44 px, agendamento, menu, hero expansivo e acordeão OK. LCP local do Chromium 150 a 230 ms sem throttling e CLS 0 (não é medida em 4G; falta rodar Lighthouse).
+- Peso: ZIP de 6,55 MB (vídeo 3,89 MB; fotos em AVIF e WebP com srcset).
+- Pendências desta revisão: foto real da Kamila e do espaço; arquivo do logo dela; vídeo de tela; Lighthouse em 4G; pesquisa dos links (Firecrawl sem créditos); shader Moldura WebGL; aprovação do ouro profundo #7D5F27.
 
 ## Pendências (A CONFIRMAR com a cliente)
 Meta de faturamento e linha de base; nome oficial; endereço (Mansueto Filizzola 16 x Guarapari 1456); WhatsApp (5531999274642 x 31 99475-0351); horário; logo atual; fotos do espaço e dela; formação/certificados; registro do responsável técnico; quem aplica botox/preenchimento; autorizações de antes e depois; domínio; quem aprova; prazo; reativar agenda online e corrigir preços de R$ 1,50; criar Perfil da Empresa no Google.
@@ -64,3 +81,4 @@ Meta de faturamento e linha de base; nome oficial; endereço (Mansueto Filizzola
 |---|---|---|---|
 | 09/11/2026 | Revisão 1 + /site v2 + pacote de animações | Decisões do Jeff registradas; 2 rotas de logo na paleta nova com SVGs em curvas e prancha (`identidade/v2/`) | Escolha da rota; paleta, fotos, motion e páginas do site v2; pesquisa das referências; docs/design-direction.md novo; canonical e botão flutuante |
 | 09/11/2026 | Escolha do logo + site v2 | Rota 2 escolhida; site v2 construído (paleta, tipografia, intro, hero, acordeão, cards, moldura, flags de mapa e vídeo); docs de design; QA em Chrome e WebKit; ZIP regerado; prints em `entrega/v2/` | Fotos e vídeo reais, Zoom Parallax, Polaroid, Lenis, pesquisa dos links, aprovação do ouro profundo, canonical de produção; (commit e push feitos em 09/11/2026, prévia atualizada) |
+| 09/11/2026 | Revisão 2 + /site v3 + refinar tipografia | Imagens e vídeo de atmosfera tratados; 4 efeitos premium no ar e o 5º pronto (desligado); logo provisório com `<Logo />`; tipografia refinada; og:image, ícone Apple, 404, canonical só em produção; docs de créditos e pedido de arquivos; QA em Chrome e WebKit; prints em `entrega/v3/` | Foto real da Kamila e do espaço; arquivo do logo; vídeo de tela; Lighthouse 4G; shader Moldura; commit e push (não feitos) |

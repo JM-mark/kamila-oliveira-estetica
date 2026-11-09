@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { canon } from "@/lib/seo";
 import { SITE } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Política de privacidade | Kamila Oliveira Estética",
   description: "Como o site da Kamila Oliveira Estética trata dados pessoais, conforme a LGPD.",
-  alternates: { canonical: "/privacidade/" },
+  alternates: canon("/privacidade/"),
 };
 
 export default function Page() {

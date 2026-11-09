@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import PhotoSlot from "@/components/PhotoSlot";
+import { canon } from "@/lib/seo";
+import GoldFrame from "@/components/GoldFrame";
 import WaButton from "@/components/WaButton";
 import { SITE } from "@/content/site";
+import { asset } from "@/lib/asset";
+import Photo from "@/components/Photo";
 
 export const metadata: Metadata = {
   title: "Sobre a Kamila Oliveira | Estética em Santa Amélia, BH",
   description: "Conheça a Kamila Oliveira e o cuidado que ela oferece em Santa Amélia, região da Pampulha, em Belo Horizonte.",
-  alternates: { canonical: "/sobre/" },
+  alternates: canon("/sobre/"),
 };
 
 export default function Page() {
@@ -25,7 +28,16 @@ export default function Page() {
           </p>
           <div className="btn-row"><WaButton origem="sobre" label="Agendar pelo WhatsApp" /></div>
         </div>
-        <div className="frame"><div className="in"><PhotoSlot /></div></div>
+        <GoldFrame>
+          <div className="in photo-box">
+            {SITE.kamilaPhoto ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={asset(SITE.kamilaPhoto)} alt="Kamila Oliveira" loading="lazy" />
+            ) : (
+              <Photo name="corpo" sizes="(min-width: 900px) 40vw, 90vw" />
+            )}
+          </div>
+        </GoldFrame>
       </div>
     </section>
   );
