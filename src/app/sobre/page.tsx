@@ -28,7 +28,7 @@ export default function Page() {
           </p>
           <div className="btn-row"><WaButton origem="sobre" label="Agendar pelo WhatsApp" /></div>
         </div>
-        <GoldFrame>
+        <GoldFrame animated>
           <div className="in photo-box">
             {SITE.kamilaPhoto ? (
               // eslint-disable-next-line @next/next/no-img-element

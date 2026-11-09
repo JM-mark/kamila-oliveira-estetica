@@ -1,12 +1,10 @@
-# Créditos de imagens (v3, 09/11/2026)
+# Créditos de imagens (v4, 09/11/2026)
 
 Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença gratuita: https://www.pexels.com/license/). Nenhuma é apresentada como resultado, cliente, equipe, a Kamila ou o espaço dela. Tratamento de cor único (quente, preto profundo, realce dourado suave, grão fino) por `scripts/process-photos.mjs`; originais em `_originais/` (fora do git).
 
 ## Usadas
 | Arquivo no site | Fonte | Autor | Link | Licença | Onde entra | Uso |
 |---|---|---|---|---|---|---|
-| `public/media/hero.mp4` (1080x2048, 3,89 MB; sem recompressão) | Pexels vídeo 3998272 | cottonbro studio | https://www.pexels.com/video/hands-woman-relaxation-luxury-3998272/ | Pexels | Hero da Home | atmosfera |
-| `photos/hero_poster-*` (poster do vídeo, miniatura oficial do Pexels) | Pexels vídeo 3998272 | cottonbro studio | idem | Pexels | Poster do hero | atmosfera |
 | `photos/laser-*` | Pexels foto 37078056 | Kerim Eveyik | https://www.pexels.com/photo/close-up-of-cosmetic-laser-treatment-in-clinic-37078056/ | Pexels | Painel "Depilação a laser" e hero da página do serviço | atmosfera |
 | `photos/pele-*` | Pexels foto 9253769 | Ron Lach | https://www.pexels.com/photo/person-pouring-liquid-on-cotton-pad-9253769/ | Pexels | Painel e página "Limpeza de pele" | atmosfera |
 | `photos/corpo-*` | Pexels foto 20469562 | Feyza Yıldırım | https://www.pexels.com/photo/cream-on-womans-neck-20469562/ | Pexels | Painel e página "Estética corporal"; moldura de "Sobre" enquanto não há foto real | atmosfera (provisória no Sobre) |
@@ -18,6 +16,7 @@ Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença 
 ## Da lista, mas NÃO usadas (e por quê)
 | Item | Motivo |
 |---|---|
+| Vídeo 3998272 (cottonbro studio) | foi o hero na v3 e saiu do site na v4 (o Jeff retirou o hero com vídeo); arquivo removido |
 | Vídeo 6628469 (masseuse, KoolShooters) | ambiente claro com janela e decoração; parece um interior e destoa da paleta escura |
 | Vídeo 6628409 (KoolShooters) e 6628563 (KoolShooters) | não escolhidos; o 3998272 combina melhor (luz quente, sombra profunda) |
 | Foto 3985361 (Gustavo Fring) | interior de clínica com rosto: pode ser confundido com o espaço dela |

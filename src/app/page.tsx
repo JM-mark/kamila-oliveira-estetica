@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { canon } from "@/lib/seo";
+import EspacoSection from "@/components/EspacoSection";
 import GoldFrame from "@/components/GoldFrame";
-import HeroExpand from "@/components/HeroExpand";
+import Hero from "@/components/Hero";
 import Photo from "@/components/Photo";
 import Reveal from "@/components/Reveal";
 import ServicesAccordion from "@/components/ServicesAccordion";
 import WaButton from "@/components/WaButton";
-import ZoomParallax from "@/components/ZoomParallax";
 import { SITE } from "@/content/site";
 import { asset } from "@/lib/asset";
 
@@ -29,7 +29,7 @@ export default function Home() {
   const marble2 = { ["--bg" as string]: `url(${asset("/photos/marmore2-1280.webp")})` };
   return (
     <>
-      <HeroExpand />
+      <Hero />
 
       <section className="section" id="servicos">
         <div className="wrap">
@@ -42,18 +42,7 @@ export default function Home() {
         </div>
       </section>
 
-      {SITE.spacePhoto ? (
-        <ZoomParallax
-          around={["laser", "pele", "corpo", "relaxamento", "marmore"]}
-          center={
-            <>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset(SITE.spacePhoto)} alt="O espaço da Kamila Oliveira Estética" loading="lazy" />
-              <p className="zp-text display">Um espaço feito para você desacelerar.</p>
-            </>
-          }
-        />
-      ) : null}
+      <EspacoSection />
 
       <section className="section sand">
         <div className="wrap">
@@ -61,11 +50,12 @@ export default function Home() {
             <p className="eyebrow">Como agendar</p>
             <h2>Três passos para agendar</h2>
           </Reveal>
-          <div className="stack">
+          <div className="steps-3">
             {PASSOS.map((p, i) => (
-              <div key={p.t} className="stack-card" style={{ ["--i" as string]: i }}>
+              <div key={p.t} className="step-card">
                 <span className="num">0{i + 1}</span>
-                <div><h3>{p.t}</h3><p>{p.d}</p></div>
+                <h3>{p.t}</h3>
+                <p>{p.d}</p>
               </div>
             ))}
           </div>
@@ -79,7 +69,7 @@ export default function Home() {
       <section className="section dark marble" style={marble2}>
         <div className="wrap split">
           <Reveal>
-            <GoldFrame>
+            <GoldFrame animated>
               <div className="in photo-box">
                 {SITE.kamilaPhoto ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -126,7 +116,7 @@ export default function Home() {
       <section className="section dark" style={{ textAlign: "center" }}>
         <div className="wrap">
           <Reveal>
-            <GoldFrame style={{ maxWidth: 820, margin: "0 auto" }}>
+            <GoldFrame animated style={{ maxWidth: 820, margin: "0 auto" }}>
               <div className="in" style={{ padding: "clamp(40px,7vw,88px) 24px" }}>
                 <p className="eyebrow" style={{ marginInline: "auto" }}>Agende</p>
                 <h2 style={{ maxWidth: "22ch", margin: "0 auto 14px" }}>Seu horário começa numa mensagem</h2>

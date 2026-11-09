@@ -46,3 +46,13 @@ Os links da revisão (Profitize, Awwwards, recent.design, Siteinspire, Sitereel,
 - **Apoio:** cards empilhados, botões com onda dourada, sublinhado dourado. Text Rotate e Polaroid ficaram fora, como pedido (o Text Rotate da v2 foi removido do hero).
 - **Detalhes:** favicon e ícone Apple, imagem de compartilhamento 1200x630, 404 no estilo, transição suave entre páginas (opacidade), foco visível, canonical só em produção.
 - **Tipografia:** refinada em toda a escala (ver DESIGN.md).
+
+
+## v4 (animações e fonte escolhidas pelo Jeff, 09/11/2026)
+- **Removido:** o Scroll Expansion Hero (vídeo que cresce com o scroll), o vídeo do hero, o Zoom Parallax, o Lenis e os cards que se empilham (sticky). Nada fica preso à rolagem na Home. A seção "O espaço" (zoom parallax) saiu.
+- **Hero:** fundo aurora (dourado, champanhe e preto) em CSS, lento, que reage ao cursor só no desktop. É **provisório**: o shader Aurora (WebGL, Profitize) exige que o Jeff cole o prompt (a página pede login; a Aurora aparece como item premium). Quando vier, o fundo `.aurora-wrap` em `Hero.tsx` é trocado, com o WebGL carregado só quando a seção aparece.
+- **Moldura:** borda dourada estática de 1 px por padrão. No desktop com mouse, 3 usos animados (Sobre na Home, CTA final e página /sobre): luz que corre e aponta para o cursor, em CSS. O shader WebGL da Moldura também depende do prompt do Jeff (a página é "grátis" mas pede login para copiar).
+- **Acordeão:** mantido (4 painéis com foto, laser aberto, botão `?servico=`, lista no celular). Foi construído do zero; o "Copiar prompt" do 21st.dev não foi usado.
+- **Tipografia:** Gilda Display (primária) e Schibsted Grotesk (texto) mantidas; **Marcellus** entra como secundária em menu, nomes de serviço, rótulos e botões, em caixa-alta com 0,12em a 0,16em (ver DESIGN.md). Não é usada em texto longo.
+- **Fotos do Instagram:** ver `docs/fotos-instagram.md`. O feed não tem fotos do espaço; a seção "Por dentro do espaço" fica pronta e oculta até chegarem 4 a 6 fotos reais aprovadas.
+- Fotos de Pexels continuam só como atmosfera (serviços e fundos). O vídeo do hero foi retirado do site.

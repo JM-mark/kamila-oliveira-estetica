@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Gilda_Display, Schibsted_Grotesk } from "next/font/google";
+import { Gilda_Display, Marcellus, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
 import Intro from "@/components/Intro";
-import SmoothScroll from "@/components/SmoothScroll";
 import { SITE } from "@/content/site";
 
 const display = Gilda_Display({ subsets: ["latin"], weight: "400", variable: "--font-display", display: "swap" });
-const body = Schibsted_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-body", display: "swap" });
+const label = Marcellus({ subsets: ["latin"], weight: "400", variable: "--font-label", display: "swap" });
+const body = Schibsted_Grotesk({ subsets: ["latin"], weight: ["400", "600"], variable: "--font-body", display: "swap" });
 
 export const viewport: Viewport = { themeColor: "#0f0d0b", width: "device-width", initialScale: 1 };
 
@@ -46,7 +46,7 @@ const introScript =
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${display.variable} ${body.variable}`}>
+    <html lang="pt-BR" className={`${display.variable} ${label.variable} ${body.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -59,7 +59,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Intro />
-        <SmoothScroll />
         <a className="skip" href="#conteudo">Ir para o conteúdo</a>
         <Header />
         <main id="conteudo">{children}</main>

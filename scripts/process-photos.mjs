@@ -14,7 +14,6 @@ const FOTOS = {
   pele: { src: "_originais/photo-9253769.jpg", brightness: 0.72, sat: 0.7, warm: 0.34 },
   corpo: { src: "_originais/photo-20469562.jpg", brightness: 0.82, sat: 0.85 },
   relaxamento: { src: "_originais/photo-6417924.jpg", brightness: 0.68, sat: 0.62, warm: 0.42 },
-  hero_poster: { src: "_originais/poster-3998272.jpg", brightness: 0.85, sat: 0.9 },
   marmore: { src: "_originais/photo-6788338.jpg", brightness: 0.55, sat: 0.55 },
   marmore2: { src: "_originais/photo-36327398.jpg", brightness: 0.4, sat: 0.2 },
 };

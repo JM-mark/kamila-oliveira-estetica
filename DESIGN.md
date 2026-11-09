@@ -11,12 +11,11 @@ colors:
   cinza: "#5E5850"
   suave: "#CFC7B8"
 typography:
-  display: { family: "Gilda Display", weight: 400, h1: "clamp(42px, 8vw, 88px)", h2: "clamp(32px, 5vw, 56px)", h3: "clamp(22px, 2.6vw, 30px)" }
-  body: { family: "Schibsted Grotesk", weight: 400, size: "17px", leading: 1.6 }
-  eyebrow: { family: "Schibsted Grotesk", weight: 600, size: "13px", transform: uppercase, tracking: "0.2em" }
-  button: { family: "Schibsted Grotesk", weight: 600, size: "16px", height: "52px" }
+  display: { family: "Gilda Display", weight: 400, uso: "títulos, numerais, citações", var: "--font-display" }
+  label: { family: "Marcellus", weight: 400, uso: "menu, nomes de serviço, rótulos e botões; sempre em caixa-alta", var: "--font-label", tracking: "0.12em a 0.16em" }
+  body: { family: "Schibsted Grotesk", weights: [400, 600], uso: "parágrafos, listas, formulários, legendas", var: "--font-body" }
 shapes: { card: "0 (cantos retos)", button: "retângulo com preenchimento dourado em onda no hover", frame: "borda de ouro de 2 px com luz que corre" }
-motion: { intro: "KO se desenha em ouro e a cortina sobe, 1,2 s, 1x por sessão", hero: "expansão ao rolar (desktop), tela cheia no celular", servicos: "acordeão", agendar: "cards empilhados (sticky)", moldura: "luz conic-gradient na borda", reducedMotion: "tudo desligado, estado final" }
+motion: { intro: "KO se desenha em ouro e a cortina sobe, 1,2 s, 1x por sessão", hero: "fundo aurora dourado em CSS, lento, reage ao cursor só no desktop (shader WebGL pendente do prompt)", servicos: "acordeão com foto", moldura: "borda dourada de 1 px; luz que corre e aponta para o cursor só no desktop (máx. 3 usos)", reducedMotion: "tudo parado, estado final", proibido: "qualquer efeito preso à rolagem na Home" }
 ---
 
 # Kamila Oliveira Estética: design system (v2)
@@ -29,9 +28,12 @@ Preto é fundo e texto; off-white é base; areia alterna seções. Ouro #B8955A 
 Contrastes medidos: off-white/preto 17,5:1; ouro claro/preto 11,0:1; ouro/preto 6,9:1; cinza/off-white 6,4:1; cinza/areia 5,4:1; ouro profundo/off-white 5,4:1. Ouro/off-white 2,5:1 (nunca texto).
 
 ## Typography
-Dois papéis, duas famílias: **Gilda Display** (títulos, numerais, citações, nome de painéis) e **Schibsted Grotesk** (todo o resto). Sem itálico (Gilda não tem; `font-synthesis: none` impede itálico falso).
+Três papéis, três famílias, todas Google Fonts (OFL), carregadas com `next/font` e `display: swap`, só nos pesos usados (Gilda 400, Marcellus 400, Schibsted 400 e 600):
+- **Gilda Display** (primária): títulos, numerais, citações.
+- **Marcellus** (secundária, v4): menu, nomes de serviço, rótulos (eyebrows) e botões. Sempre em caixa-alta com `letter-spacing` de 0,12em a 0,16em. **Nunca em texto longo.**
+- **Schibsted Grotesk** (texto): parágrafos, listas, opções de formulário, legendas, rodapé corrido. É a fonte de leitura no celular.
+Sem itálico (`font-synthesis: none`).
 
-Escala em rem (base 16 px), fluida com `clamp()`:
 | Papel | Família | Tamanho | Entrelinha | Tracking |
 |---|---|---|---|---|
 | Hero (h1 da Home) | Gilda | 44 a 92 px | 1,02 | -0,015em |
@@ -41,14 +43,16 @@ Escala em rem (base 16 px), fluida com `clamp()`:
 | Citação | Gilda | 32 a 56 px | 1,08 | -0,008em |
 | Lead | Schibsted 400 | 18 a 21 px | 1,55 | 0 |
 | Corpo | Schibsted 400 | 17 px | 1,65 | 0 |
-| Menu | Schibsted 500 | 15 px | n/a | +0,01em |
 | Lista, opção de formulário | Schibsted 400 | 16 a 17 px | 1,4 a 1,5 | +0,005em |
-| Texto secundário, rodapé | Schibsted 400 | 15 px | 1,6 | +0,01em |
+| Texto secundário | Schibsted 400 | 15 px | 1,6 | +0,01em |
 | Legenda, dica, direitos | Schibsted 400 | 13 px | 1,5 | +0,01 a 0,02em |
-| Rótulo (eyebrow, títulos do rodapé) | Schibsted 600 | 12 px, caixa-alta | 1,4 | +0,22em |
-| Botão, menu móvel, WhatsApp flutuante | Schibsted 600 | 13 px, caixa-alta | 1,2 | +0,12em |
+| Menu (caixa-alta) | Marcellus 400 | 14 px (mínimo) | n/a | +0,12em |
+| Menu móvel | Marcellus 400 | 16 px | n/a | +0,14em |
+| Nome de serviço (acordeão, caixa-alta) | Marcellus 400 | 16 a 20 px | 1,25 | +0,12em |
+| Rótulo / eyebrow (caixa-alta) | Marcellus 400 | 14 px | 1,4 | +0,16em |
+| Botão (caixa-alta) | Marcellus 400 | 15 px (mínimo) | 1,2 | +0,14em |
 
-Regras: `text-wrap: balance` nos títulos e `pretty` nos parágrafos; medida de 60 caracteres (62 na política); numerais alinhados (`lining-nums`); kerning e ligaduras ligados; nada de texto abaixo de 12 px; campos de formulário em 16 px (evita zoom no iPhone).
+Regras: área de toque de 48 px em menu e botões; `text-wrap: balance` nos títulos e rótulos e `pretty` nos parágrafos; medida de 60 caracteres (62 na política); numerais alinhados; campos de formulário em 16 px (evita zoom no iPhone). O menu completo só aparece a partir de 1100 px de largura (em caixa-alta espaçada ele ocupa mais espaço); abaixo disso, o botão "Menu".
 
 ## Layout
 Contêiner de 1160 px, gutter de 20 px, seções de 64 a 128 px de respiro. Hero em tela cheia; serviços em acordeão horizontal no desktop e lista empilhada no celular.
