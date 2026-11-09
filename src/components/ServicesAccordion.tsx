@@ -19,8 +19,8 @@ export default function ServicesAccordion() {
   return (
     <div className="acc">
       {PANELS.map((p, i) => (
-        <div key={p.n} className="acc-panel" data-open={open === i}>
-          <Photo name={p.photo} className="acc-img" sizes="(min-width: 900px) 50vw, 100vw" />
+        <div key={p.n} className="acc-panel" data-open={open === i} data-cursor="ver">
+          <Photo name={p.photo} className="acc-img" sizes="(min-width: 900px) 34vw, 100vw" />
           <button
             className="acc-head"
             aria-expanded={open === i}

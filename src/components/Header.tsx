@@ -19,7 +19,7 @@ export default function Header() {
     <header className="header">
       <div className="wrap bar">
         <Link href="/" aria-label="Kamila Oliveira Estética, página inicial" onClick={() => setOpen(false)}>
-          <Logo height={40} />
+          <Logo variant="horizontal" height={46} />
         </Link>
         <nav className="nav-links" aria-label="Principal">
           {NAV.map((n) => (

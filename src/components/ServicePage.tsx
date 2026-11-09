@@ -21,7 +21,7 @@ export default function ServicePage({ s }: { s: Service }) {
               <Link className="btn ghost" href={`/agendar/?servico=${s.slug}`}>Montar meu pedido</Link>
             </div>
           </div>
-          <GoldFrame><div className="in photo-box"><Photo name={s.photo} priority sizes="(min-width: 900px) 40vw, 90vw" /></div></GoldFrame>
+          <GoldFrame><div className="in photo-box" data-cursor="ver"><Photo name={s.photo} priority sizes="(min-width: 900px) 40vw, 90vw" /></div></GoldFrame>
         </div>
       </section>
 

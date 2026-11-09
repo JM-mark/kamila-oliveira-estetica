@@ -1,13 +1,13 @@
-import { MONO_KO, MONO_OCTAGON, MONO_VIEWBOX } from "@/content/monogram";
+import { LOGO_PATH } from "@/content/logo-path";
 import IntroControl from "./IntroControl";
 
-/** Cortina de intro: o monograma KO se desenha e a cortina sobe. Só aparece quando o script do <head> liga data-intro="1". */
+/** Preloader (1ª visita da sessão, até 1,2 s): a borboleta com K da Kamila se desenha em traço dourado e a cortina preta sobe.
+ *  Só aparece quando o script do <head> liga data-intro="1"; some sozinho por CSS mesmo sem JavaScript. */
 export default function Intro() {
   return (
     <div className="intro" aria-hidden="true">
-      <svg viewBox={MONO_VIEWBOX} role="presentation">
-        <polygon className="oct" points={MONO_OCTAGON} />
-        <path className="ko" d={MONO_KO} />
+      <svg viewBox="40 0 470 519" role="presentation">
+        <path className="logo-draw" d={LOGO_PATH} pathLength={1} fillRule="evenodd" />
       </svg>
       <IntroControl />
     </div>

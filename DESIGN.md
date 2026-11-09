@@ -15,7 +15,7 @@ typography:
   label: { family: "Marcellus", weight: 400, uso: "menu, nomes de serviço, rótulos e botões; sempre em caixa-alta", var: "--font-label", tracking: "0.12em a 0.16em" }
   body: { family: "Schibsted Grotesk", weights: [400, 600], uso: "parágrafos, listas, formulários, legendas", var: "--font-body" }
 shapes: { card: "0 (cantos retos)", button: "retângulo com preenchimento dourado em onda no hover", frame: "borda de ouro de 2 px com luz que corre" }
-motion: { intro: "KO se desenha em ouro e a cortina sobe, 1,2 s, 1x por sessão", hero: "fundo aurora dourado em CSS, lento, reage ao cursor só no desktop (shader WebGL pendente do prompt)", servicos: "acordeão com foto", moldura: "borda dourada de 1 px; luz que corre e aponta para o cursor só no desktop (máx. 3 usos)", reducedMotion: "tudo parado, estado final", proibido: "qualquer efeito preso à rolagem na Home" }
+motion: { preloader: "borboleta com K se desenha em ouro e a cortina sobe, até 1 s, 1x por sessão", hero: "shader Aurora (WebGL) dourado, champanhe e preto, lento, reage ao cursor só no desktop; fallback CSS", moldura: "shader Moldura (WebGL) em 3 usos; borda dourada de 1 px estática no celular e com reduced motion", servicos: "acordeão com foto", titulos: "split-text por máscara, uma vez", detalhes: "botões magnéticos, sublinhado dourado, cursor Ver, marquee em Marcellus, cortina entre páginas", reducedMotion: "tudo parado, estado final", proibido: "qualquer efeito preso à rolagem" }
 ---
 
 # Kamila Oliveira Estética: design system (v2)
@@ -53,6 +53,9 @@ Sem itálico (`font-synthesis: none`).
 | Botão (caixa-alta) | Marcellus 400 | 15 px (mínimo) | 1,2 | +0,14em |
 
 Regras: área de toque de 48 px em menu e botões; `text-wrap: balance` nos títulos e rótulos e `pretty` nos parágrafos; medida de 60 caracteres (62 na política); numerais alinhados; campos de formulário em 16 px (evita zoom no iPhone). O menu completo só aparece a partir de 1100 px de largura (em caixa-alta espaçada ele ocupa mais espaço); abaixo disso, o botão "Menu".
+
+## Logo
+Logo provisório da Kamila (arquivo da agenda dela), limpo e recortado, sem redesenho, atrás do componente `<Logo />`. Versão escura para fundo preto; versão clara com ouro profundo para fundo claro. Altura mínima: borboleta com K 44 px; assinatura 22 px.
 
 ## Layout
 Contêiner de 1160 px, gutter de 20 px, seções de 64 a 128 px de respiro. Hero em tela cheia; serviços em acordeão horizontal no desktop e lista empilhada no celular.

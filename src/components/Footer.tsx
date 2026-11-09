@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="cols">
           <div>
-            <div style={{ marginBottom: 18 }}><Logo height={48} /></div>
+            <div style={{ marginBottom: 18 }}><Logo variant="horizontal" height={56} /></div>
             <p>Estética facial e corporal em {SITE.neighborhood}, região da {SITE.area}, {SITE.city}.</p>
           </div>
           <div>

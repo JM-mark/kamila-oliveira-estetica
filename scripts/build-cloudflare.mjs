@@ -28,7 +28,8 @@ ${INDEXAVEL ? "" : "  X-Robots-Tag: noindex, nofollow\n"}
 ${bloco("/_next/static/*")}
 ${bloco("/photos/*")}
 ${bloco("/video/*")}
-${bloco("/brand/*")}`;
+${bloco("/brand/*")}
+${bloco("/espaco/*")}`;
 writeFileSync("public/_headers", headers);
 
 // ---- build ----

@@ -21,7 +21,7 @@ Pacote: identidade + site (/brand + /site). Idioma: PT. Briefing completo: `docs
 - Duas rotas de identidade antes de fechar.
 - Sem promessa de resultado, sem "garantido", sem "definitiva"; sem preços no site (a confirmar com a cliente).
 - Prévia com noindex/nofollow e robots Disallow: /. Nada em produção sem aval do Jeff.
-- LOGO PROVISÓRIO (decisão do Jeff, 09/11/2026): usar o logo atual da Kamila (perfil do Instagram) assim que o arquivo original chegar; até lá fica a composição tipográfica atual (`// TODO logo-original`). Não redesenhar o logo dela. Tudo passa pelo componente `<Logo />`; a identidade do zero (/brand) vem depois.
+- LOGO PROVISÓRIO (decisão do Jeff, 09/11/2026): o logo da Kamila é o da página de agendamento dela (borboleta dourada com K e "Kamila Oliveira" em cursiva, 512 px), limpo e recortado, sem redesenhar. Trocar pelo original quando chegar (`_originais/logo/` + `scripts/logo-proc.cjs`). Tudo passa pelo componente `<Logo />`.
 - Agendamento guiado em etapas que abre o WhatsApp; link da agenda online por flag, só após a Kamila reativá-la.
 
 ## Revisão 1 (09/11/2026): estado por item
@@ -39,6 +39,19 @@ Fontes: revisao-1-e-site-v2.md e animacoes-v2.md (Downloads do Jeff). Decisões 
 - Não mexer: agendamento em 4 etapas, sem preços, sem promessa de resultado, títulos/descrições locais, noindex.
 - QA 09/11/2026 (Chrome e WebKit; 360/390/768/1440): sem rolagem horizontal, 1 H1 por página, CTA do hero visível sem rolar no celular, intro 1x por sessão e pulável, movimento reduzido e sem JS OK, alvos de toque >= 44 px, agendamento OK. LCP local do Chromium sem throttling 104 ms e CLS 0 (não é medida em 4G). Vídeo da Home não gerado (sem ffmpeg compatível): prints e sequência WebKit em `entrega/v2/`.
 - Bug achado no teste e corrigido: a animação da moldura se chamava `spin` e colidia com a do Tailwind (girava a caixa); renomeada para `frame-spin`.
+
+## v5 (09/11/2026): prompt completo e definitivo do Jeff (substitui v2, v3 e v4)
+Estado: prévia local atualizada; NÃO commitado nem enviado ao GitHub (a prévia no ar é a v4).
+- Logo da Kamila (arquivo da agenda) no cabeçalho, rodapé, hero, preloader, ícones e og:image. Versões escura e clara; borboleta vetorizada (potrace) para o preloader.
+- Shaders WebGL próprios: Aurora (hero) e Moldura (3 usos: logo no hero, foto do Sobre, card do CTA final). Escritos por mim a partir da descrição pública; os prompts do Profitize exigem login (se o Jeff colar, troco `AuroraCanvas.tsx` e `MolduraCanvas.tsx`). Fallbacks: CSS sem WebGL, borda de 1 px no celular e com reduced motion.
+- Detalhes de agência: preloader (≤ 1 s), split-text por máscara, botões magnéticos, cursor "Ver", marquee em Marcellus, cortina entre páginas, acordeão de serviços, diferenciais em 3 colunas com fatos confirmados.
+- Fotos da Kamila: só UMA no site (Sobre), por decisão do Jeff ("não enche o site com as fotos dela"). A grade "Quem cuida de você" está pronta e desligada (`src/content/espaco.ts` vazio). Quadros extraídos do Instagram ficam só em `_originais/` (fora do git). Ver `docs/fotos-instagram.md`.
+- Correção importante: o export estático gerava 404 em todos os links (arquivos de pré-carregamento do Next em pasta aninhada). `scripts/fix-rsc.mjs` roda no `postbuild`; agora a navegação é sem recarga e sem 404.
+- Imagens: atmosfera em AVIF/WebP; logo em WebP nos tamanhos usados; ZIP Cloudflare de 3,6 MB.
+- Lighthouse celular: Performance 91, Acessibilidade 100, Boas práticas 100, SEO 66 (só pelo noindex da prévia). LCP de laboratório 3,4 a 3,6 s; medição em 4G realista: 2,0 s (1ª visita com preloader) e 0,9 a 1,0 s depois. Relatório em `entrega/v5/`.
+- QA: Chrome e WebKit, 360/390/768/1024/1280/1440, tudo passou (ver `docs/checklist-v5.md`).
+- Entrega: prints e vídeos de tela (sequências costuradas, ~7 quadros/s) em `entrega/v5/`.
+- Pendências: aprovação do Jeff e da Kamila; fotos/originais e logo original; dados A CONFIRMAR em `docs/a-confirmar.md`; prompts do Profitize (opcional); vídeo de tela a 60 fps; commit e push.
 
 ## v4 (09/11/2026): animações e fonte escolhidas pelo Jeff
 Fonte: site-v4-animacoes-fonte.md. Estado: ainda NÃO commitado nem enviado ao GitHub; a prévia no ar é a v3.
@@ -94,3 +107,4 @@ Meta de faturamento e linha de base; nome oficial; endereço (Mansueto Filizzola
 | 09/11/2026 | Escolha do logo + site v2 | Rota 2 escolhida; site v2 construído (paleta, tipografia, intro, hero, acordeão, cards, moldura, flags de mapa e vídeo); docs de design; QA em Chrome e WebKit; ZIP regerado; prints em `entrega/v2/` | Fotos e vídeo reais, Zoom Parallax, Polaroid, Lenis, pesquisa dos links, aprovação do ouro profundo, canonical de produção; (commit e push feitos em 09/11/2026, prévia atualizada) |
 | 09/11/2026 | Revisão 2 + /site v3 + refinar tipografia | Imagens e vídeo de atmosfera tratados; 4 efeitos premium no ar e o 5º pronto (desligado); logo provisório com `<Logo />`; tipografia refinada; og:image, ícone Apple, 404, canonical só em produção; docs de créditos e pedido de arquivos; QA em Chrome e WebKit; prints em `entrega/v3/` | Foto real da Kamila e do espaço; arquivo do logo; vídeo de tela; Lighthouse 4G; shader Moldura; commit e push (não feitos) |
 | 09/11/2026 | /site v4 (trocar animações e fonte secundária; fotos do Instagram) | Hero expansivo, vídeo, Zoom Parallax, Lenis e cards sticky removidos; hero aurora e moldura em CSS (provisórios); Marcellus como secundária; seção "Por dentro do espaço" pronta e oculta; Instagram revisado; docs e prints em `entrega/v4/` | Prompts do Jeff para Aurora e Moldura (WebGL); fotos reais e logo da Kamila; commit e push (não feitos) |
+| 09/11/2026 | /site v5 (prompt completo) + logo da agenda + "não encher o site com fotos dela" | Logo real, shaders Aurora e Moldura, preloader, split-text, cursor, marquee, cortina, acordeão, diferenciais; correção do 404 do pré-carregamento; Lighthouse 91/100/100/66; QA em Chrome e WebKit; docs e checklist | Aprovação; logo original e fotos reais; dados A CONFIRMAR; commit e push (não feitos) |

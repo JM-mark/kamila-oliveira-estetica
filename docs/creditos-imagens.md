@@ -1,4 +1,4 @@
-# Créditos de imagens (v4, 09/11/2026)
+# Créditos de imagens (v5, 09/11/2026)
 
 Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença gratuita: https://www.pexels.com/license/). Nenhuma é apresentada como resultado, cliente, equipe, a Kamila ou o espaço dela. Tratamento de cor único (quente, preto profundo, realce dourado suave, grão fino) por `scripts/process-photos.mjs`; originais em `_originais/` (fora do git).
 
@@ -23,6 +23,14 @@ Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença 
 | Foto 31547790 (katlyn) | objetos com marca visível e composição poluída |
 | Foto 18120173 (Halosa Sapa) | sala de spa com duas profissionais: pode passar por equipe da Kamila |
 | Pixabay 10154818 | não baixada; o laser do Pexels já cobre a seção |
+
+## Do cliente (não é banco de imagem)
+| Arquivo no site | Origem | Onde entra | Condição |
+|---|---|---|---|
+| `public/brand/kamila-*` (logo, borboleta e assinatura, versões escura e clara, em WebP) | Logo da Kamila, extraído da página de agendamento dela (agendeagora, 512x512), com fundo limpo e recorte, sem redesenho | Cabeçalho, rodapé, hero, preloader, ícones e imagem de compartilhamento | Provisório até o arquivo original chegar |
+| `public/espaco/jaleco-*` | Quadro do Instagram da Kamila (post DeuO01HRLIg), recorte da foto dela sem o texto da arte | Seção Sobre e página /sobre/ | **Precisa do aval escrito dela** |
+
+Os demais quadros extraídos do Instagram estão só em `_originais/instagram/` (fora do git e do site). Ver `docs/fotos-instagram.md`.
 
 ## Reais (Kamila)
 Nenhuma foto real no site ainda. Ver `docs/fotos-instagram.md` e `docs/pedido-arquivos-kamila.md`.

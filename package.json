@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "npx serve out",
     "lint": "eslint .",
-    "build:cloudflare": "node scripts/build-cloudflare.mjs"
+    "build:cloudflare": "node scripts/build-cloudflare.mjs",
+    "postbuild": "node scripts/fix-rsc.mjs"
   },
   "dependencies": {
     "next": "^16.4.3",
@@ -22,6 +23,7 @@
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.3",
     "postcss": "^8.5.32",
+    "potrace": "^2.1.8",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
   }

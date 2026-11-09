@@ -5,6 +5,7 @@ import WaButton from "@/components/WaButton";
 import { SITE } from "@/content/site";
 import { asset } from "@/lib/asset";
 import Photo from "@/components/Photo";
+import { FOTO_SOBRE } from "@/content/espaco";
 
 export const metadata: Metadata = {
   title: "Sobre a Kamila Oliveira | Estética em Santa Amélia, BH",
@@ -28,13 +29,13 @@ export default function Page() {
           </p>
           <div className="btn-row"><WaButton origem="sobre" label="Agendar pelo WhatsApp" /></div>
         </div>
-        <GoldFrame animated>
-          <div className="in photo-box">
+        <GoldFrame>
+          <div className="in photo-box" data-cursor="ver">
             {SITE.kamilaPhoto ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={asset(SITE.kamilaPhoto)} alt="Kamila Oliveira" loading="lazy" />
             ) : (
-              <Photo name="corpo" sizes="(min-width: 900px) 40vw, 90vw" />
+              <Photo name={FOTO_SOBRE.name} dir="espaco" alt={FOTO_SOBRE.alt} sizes="(min-width: 900px) 40vw, 90vw" />
             )}
           </div>
         </GoldFrame>

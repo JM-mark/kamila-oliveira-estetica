@@ -4,7 +4,10 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WaFloat from "@/components/WaFloat";
+import Cursor from "@/components/Cursor";
 import Intro from "@/components/Intro";
+import Magnetic from "@/components/Magnetic";
+import { NavReady } from "@/components/PageCurtain";
 import { SITE } from "@/content/site";
 
 const display = Gilda_Display({ subsets: ["latin"], weight: "400", variable: "--font-display", display: "swap" });
@@ -59,6 +62,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Intro />
+        <Cursor />
+        <Magnetic />
+        <NavReady />
         <a className="skip" href="#conteudo">Ir para o conteúdo</a>
         <Header />
         <main id="conteudo">{children}</main>
