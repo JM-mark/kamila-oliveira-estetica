@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+.claude
+scripts/_out
+scripts/_work
+*.zip
+
+# briefing interno da agência
+docs/briefings-v1.md
