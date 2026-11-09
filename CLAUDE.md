@@ -1,5 +1,6 @@
 # Kamila Oliveira Estética: site e identidade
 
+Prévia: https://jm-mark.github.io/kamila-oliveira-estetica/ (GitHub Pages, noindex) · repo público `JM-mark/kamila-oliveira-estetica`, só deste cliente. Deploy automático a cada push na `main` (workflow `.github/workflows/pages.yml`, basePath `/kamila-oliveira-estetica`). O briefing interno (`docs/briefings-v1.md`) fica fora do repo.
 Stack do site: Next.js 16 (App Router) + TypeScript + Tailwind v4, export estático. Comandos: `npm run dev`, `npm run lint`, `npm run build`, `npm run build:cloudflare` (gera `kamila-oliveira-estetica-cloudflare.zip` na raiz, sem basePath, noindex). Conteúdo e flags em `src/content/` (`site.ts` concentra WhatsApp, agenda online, indexação, GA4). Design system em `DESIGN.md`; decisão de estilo em `docs/design-direction.md`.
 
 Pacote: identidade + site (/brand + /site). Idioma: PT. Briefing completo: `docs/briefings-v1.md` (v1, 09/11/2026).
@@ -33,3 +34,4 @@ Meta de faturamento e linha de base; nome oficial; endereço (Mansueto Filizzola
 - v1 (09/11/2026): briefings /brand e /site recebidos; 2 rotas de identidade apresentadas (pendente aprovação).
 - v1.1 (09/11/2026): Jeff escolheu a Rota B; logos finais em SVG e manual de marca criados (pendente aprovação da Kamila).
 - v2 (09/11/2026): primeira versão do site (prévia noindex) e ZIP Cloudflare; aguarda revisão do Jeff e dados da Kamila.
+- v2.1 (09/11/2026): prévia publicada no GitHub Pages (noindex); 11 URLs conferidas com status 200.
