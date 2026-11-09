@@ -1,12 +1,22 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SERVICES } from "@/content/services";
 import { SITE } from "@/content/site";
 import { track } from "@/lib/track";
 import { waLink } from "@/lib/wa";
 
-const PERIODOS = ["Manhã", "Tarde", "Noite", "Sem preferência"] as const;
+const PERIODOS = ["Manhã", "Tarde", "Sem preferência"] as const;
+
+function hojeISO(): string {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+/** Aplica o dia mínimo quando o input aparece (ele só existe na etapa 3). */
+function aplicaMin(el: HTMLInputElement | null) {
+  if (el) el.min = hojeISO();
+}
 
 function fmtData(iso: string): string {
   const [y, m, d] = iso.split("-");
@@ -21,12 +31,8 @@ export default function Stepper() {
   const [periodo, setPeriodo] = useState<string>("Sem preferência");
   const [nome, setNome] = useState("");
   const [erro, setErro] = useState("");
-  const diaRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const d = new Date();
-    const hoje = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-    if (diaRef.current) diaRef.current.min = hoje;
     const q = new URLSearchParams(window.location.search).get("servico");
     const t = setTimeout(() => {
       if (q && SERVICES.some((x) => x.slug === q)) { setSlug(q); setStep(1); }
@@ -58,7 +64,7 @@ export default function Stepper() {
   return (
     <div className="stepper">
       <div className="progress" aria-hidden="true">
-        {[0, 1, 2, 3, 4].map((i) => (<i key={i} className={i <= step ? "on" : ""} />))}
+        {[0, 1, 2, 3].map((i) => (<i key={i} className={i <= Math.min(step, 3) ? "on" : ""} />))}
       </div>
       <p className="hint" aria-live="polite">Etapa {Math.min(step + 1, 4)} de 4</p>
 
@@ -95,7 +101,7 @@ export default function Stepper() {
           <h2 style={{ fontSize: 30, marginBottom: 6 }}>Quando você prefere?</h2>
           <div className="field">
             <label htmlFor="dia">Dia preferido (opcional)</label>
-            <input id="dia" ref={diaRef} type="date" value={dia} onChange={(e) => setDia(e.target.value)} />
+            <input id="dia" ref={aplicaMin} type="date" value={dia} onChange={(e) => setDia(e.target.value)} />
             <span className="hint">O horário final é confirmado pela clínica.</span>
           </div>
           <fieldset style={{ border: 0, padding: 0, margin: 0 }}>

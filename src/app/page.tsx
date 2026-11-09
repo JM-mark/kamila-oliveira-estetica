@@ -24,14 +24,14 @@ export default function Home() {
             <p className="lead">Depilação a laser, limpeza de pele e protocolos corporais em {SITE.city}.</p>
             <div className="btn-row">
               <WaButton origem="home_hero" />
-              <Link className="btn ghost" href="/depilacao-a-laser/">Ver serviços</Link>
+              <Link className="btn ghost" href="/#servicos">Ver serviços</Link>
             </div>
           </div>
           <Arch />
         </div>
       </section>
 
-      <section className="section alt">
+      <section className="section alt" id="servicos">
         <div className="wrap">
           <Reveal>
             <p className="eyebrow">Serviços</p>
@@ -56,10 +56,10 @@ export default function Home() {
         <div className="wrap">
           <Reveal>
             <p className="eyebrow">Como agendar</p>
-            <h2>Três passos, sem formulário longo</h2>
+            <h2>Três passos para agendar</h2>
             <ol className="steps" style={{ padding: 0 }}>
               <li><strong>Escolha o serviço</strong><span>Laser, pele ou corpo, e a área ou o pacote que você quer.</span></li>
-              <li><strong>Diga o dia e o período</strong><span>Informe quando prefere vir. Pode ser manhã, tarde ou noite.</span></li>
+              <li><strong>Diga o dia e o período</strong><span>Informe o dia e o período em que prefere vir.</span></li>
               <li><strong>Confirme pelo WhatsApp</strong><span>Seu pedido chega pronto e a gente confirma o horário com você.</span></li>
             </ol>
             <div className="btn-row">

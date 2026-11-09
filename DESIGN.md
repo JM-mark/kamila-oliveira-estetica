@@ -24,7 +24,7 @@ Clínica boutique clara: fundo creme, texto ameixa, malva como cor de ação. O 
 
 ## Colors
 Creme domina (fundo), malva é ação (botões, links, números), ameixa é texto e a seção escura, névoa é fundo de apoio. Névoa nunca vira texto sobre creme.
-Contrastes medidos: ameixa/creme 14,3:1; creme/malva 6,0:1; cinza/creme 6,5:1; malva/creme 4,7:1 (só 16 px ou mais); ameixa/névoa 8,6:1.
+Contrastes medidos: ameixa/creme 14,3:1; creme/malva 6,0:1; cinza/creme 6,5:1; malva/creme 6,0:1; ameixa/névoa 8,6:1.
 
 ## Typography
 Newsreader itálico nos títulos, Albert Sans no resto. Texto corrido até 62 caracteres por linha.

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { NAV } from "@/content/site";
 import { asset } from "@/lib/asset";
@@ -9,6 +9,12 @@ import { asset } from "@/lib/asset";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const path = usePathname();
+  useEffect(() => {
+    if (!open) return;
+    const f = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", f);
+    return () => window.removeEventListener("keydown", f);
+  }, [open]);
   return (
     <header className="header">
       <div className="wrap bar">

@@ -10,7 +10,8 @@ Pacote: identidade + site (/brand + /site). Idioma: PT. Briefing completo: `docs
 - 09/11/2026: /brand v1 feito: prancha com 2 rotas em `identidade/prancha-rotas.html` (A grafite/pérola/ouro champagne, Bodoni Moda + Hanken Grotesk; B creme/malva/ameixa, Newsreader itálico + Albert Sans). Aguardando escolha do Jeff/Kamila. Logos são estudos com fonte web, ainda sem SVG final em curvas. Nenhuma checagem de concorrentes (Mari de Águia, Accanto) feita. Site não começou.
 - 09/11/2026: Rota B desenvolvida: 8 SVGs com texto em curvas em `identidade/logos/` e manual em `identidade/manual-de-marca.html`. Fontes OFL em `identidade/fontes-origem/`. Sem PNG/PDF ainda. Ícones dos destaques do Instagram ainda não feitos.
 - 09/11/2026: /site v1 feito (prévia, noindex): Home, Depilação a laser, Limpeza de pele, Estética corporal e relaxamento, Agendar (stepper de 4 etapas que abre o WhatsApp), Sobre, Contato, Privacidade, 404. Estilo S01 com paleta da Rota B. Lint, tsc e build passam; ZIP Cloudflare gerado. QA Playwright em 360/390/768/1440 px no Chrome e no WebKit: sem rolagem horizontal, 1 H1 por página, fluxo do agendamento e menu móvel OK. Sem fotos (arco mostra o monograma), sem preços, sem avaliações, sem botox/preenchimento.
-- Não feito: owasp-security, vbs-scan, Reality Checker, teste RTL (não se aplica, só PT), animação do Jeff, GA4 e banner de consentimento, JSON-LD completo (falta telefone, endereço, horário), mapa.
+- 09/11/2026: owasp-security e varredura vbs: sem vulnerabilidade explorável (notas: validar formato do ID do GA4; CSP opcional). Reality Checker: NEEDS WORK (bloqueio: WhatsApp provisório). Corrigidos P2: data passada no stepper, CTAs sumindo sem JS, foco em seção escura, alvos de toque 44 px, faixa "noite" removida (horário não confirmado), contraste malva/creme corrigido para 6,0:1; também Esc fecha o menu e a barra do stepper tem 4 segmentos. Retestado em Chrome e WebKit (360/390/768/1440).
+- Não feito: teste RTL (não se aplica, só PT), animação do Jeff, GA4 e banner de consentimento, JSON-LD completo (falta telefone, endereço, horário), mapa.
 - Testado: sem rolagem horizontal em 375 e 1440 px (Chromium); WebKit/iPhone ainda não testado.
 
 ## Decisões que não mudam sem pedir
@@ -30,8 +31,15 @@ Meta de faturamento e linha de base; nome oficial; endereço (Mansueto Filizzola
 - Agenda online: `SITE.agendaEnabled=false`; ligar só depois que a Kamila reativá-la e corrigir os preços de R$ 1,50.
 - Antes de ativar GA4 (`NEXT_PUBLIC_GA_ID`), decidir aviso de cookies/consentimento e atualizar a Privacidade.
 
+## Pendências técnicas (Reality Checker)
+- Privacidade: identificar a responsável (razão social/CPF-CNPJ e contato) e citar Google (GA4) e hospedagem antes de ligar o GA4 e de ir ao domínio oficial.
+- Confirmar horário de funcionamento; só então voltar a oferecer período "noite".
+- Conferir no Cloudflare Pages o prefetch (404 em `__next.*.txt` apareceu no servidor estático de teste).
+- Open Graph sem imagem; canonical depende de `NEXT_PUBLIC_SITE_URL` no build do domínio oficial.
+
 ## Histórico de revisões
 - v1 (09/11/2026): briefings /brand e /site recebidos; 2 rotas de identidade apresentadas (pendente aprovação).
 - v1.1 (09/11/2026): Jeff escolheu a Rota B; logos finais em SVG e manual de marca criados (pendente aprovação da Kamila).
 - v2 (09/11/2026): primeira versão do site (prévia noindex) e ZIP Cloudflare; aguarda revisão do Jeff e dados da Kamila.
 - v2.1 (09/11/2026): prévia publicada no GitHub Pages (noindex); 11 URLs conferidas com status 200.
+- v2.2 (09/11/2026): correções P2 do Reality Checker (local, ainda não enviadas ao GitHub).
