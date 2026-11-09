@@ -10,8 +10,8 @@ export default function Footer() {
         <div className="cols">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="logo" src={asset("/brand/kamila-horizontal-negativo.svg")} alt="Kamila Oliveira Estética" width={220} height={44} />
-            <p style={{ color: "var(--nevoa)" }}>Estética facial e corporal em {SITE.neighborhood}, região da {SITE.area}, {SITE.city}.</p>
+            <img className="logo" src={asset("/brand/kamila-horizontal-negativo.svg")} alt="Kamila Oliveira Estética" width={234} height={48} />
+            <p>Estética facial e corporal em {SITE.neighborhood}, região da {SITE.area}, {SITE.city}.</p>
           </div>
           <div>
             <h2>Páginas</h2>

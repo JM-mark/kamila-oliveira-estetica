@@ -19,7 +19,7 @@ export default function Page() {
           <div className="card">
             <h3>WhatsApp</h3>
             <p>O jeito mais rápido de agendar e tirar dúvidas.</p>
-            <div style={{ marginTop: 10 }}><WaButton origem="contato" /></div>
+            <div style={{ marginTop: 10 }}><WaButton origem="contato" label="Agendar pelo WhatsApp" /></div>
           </div>
           <div className="card">
             <h3>Onde fica</h3>
@@ -32,7 +32,7 @@ export default function Page() {
             <div style={{ marginTop: 10 }}><a className="btn ghost" href={SITE.instagram} target="_blank" rel="noopener noreferrer">Abrir o Instagram</a></div>
           </div>
         </div>
-        <p style={{ marginTop: 32 }}>Prefere montar o pedido passo a passo? <Link href="/agendar/">Use o agendamento guiado</Link>.</p>
+        <p style={{ marginTop: 32 }}>Prefere montar o pedido passo a passo? <Link className="link" href="/agendar/">Use o agendamento guiado</Link>.</p>
       </div>
     </section>
   );

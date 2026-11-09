@@ -20,13 +20,13 @@ export default function Header() {
       <div className="wrap bar">
         <Link href="/" aria-label="Kamila Oliveira Estética, página inicial" onClick={() => setOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="logo" src={asset("/brand/kamila-horizontal-positivo.svg")} alt="Kamila Oliveira Estética" width={190} height={38} />
+          <img className="logo" src={asset("/brand/kamila-horizontal-negativo.svg")} alt="Kamila Oliveira Estética" width={195} height={40} />
         </Link>
         <nav className="nav-links" aria-label="Principal">
           {NAV.map((n) => (
             <Link key={n.href} href={n.href} aria-current={path === n.href ? "page" : undefined}>{n.label}</Link>
           ))}
-          <Link className="btn" href="/agendar/" style={{ minHeight: 44, padding: "0 20px", color: "var(--creme)" }}>Agendar</Link>
+          <Link className="btn" href="/agendar/">Agendar</Link>
         </nav>
         <button className="menu-btn" aria-expanded={open} aria-controls="menu-movel" onClick={() => setOpen(!open)}>
           {open ? "Fechar" : "Menu"}

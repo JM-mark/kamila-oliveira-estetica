@@ -15,6 +15,11 @@ export const SITE = {
   // Link da agenda online: só liga depois que a Kamila reativar a agenda no app.
   agendaUrl: "https://agendeagora.web.app/kamila-oliveira-estetica",
   agendaEnabled: false,
+  // Endereço confirmado: colar aqui o embed do mapa para ligar o bloco "Onde estamos". Vazio = só pede o endereço pelo WhatsApp.
+  mapEmbed: "",
+  // Vídeo de atmosfera do hero (mp4 em /public/media) e poster. Vazio = fundo de luz e grão.
+  heroVideo: "",
+  heroPoster: "",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   indexable: process.env.NEXT_PUBLIC_INDEXABLE === "true",
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",

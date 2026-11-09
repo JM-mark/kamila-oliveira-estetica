@@ -132,7 +132,7 @@ export default function Stepper() {
       {step === 4 && servico && (
         <div>
           <h2 style={{ fontSize: 30, marginBottom: 12 }}>Seu pedido está pronto</h2>
-          <pre style={{ whiteSpace: "pre-wrap", font: "inherit", background: "var(--creme)", border: "1px solid var(--line)", borderRadius: 16, padding: 18, margin: "0 0 18px" }}>{mensagem}</pre>
+          <pre style={{ whiteSpace: "pre-wrap", font: "inherit", background: "var(--off)", border: "1px solid var(--line)", borderRadius: 16, padding: 18, margin: "0 0 18px" }}>{mensagem}</pre>
           <div className="btn-row" style={{ marginTop: 0 }}>
             <a className="btn" href={waLink(mensagem)} target="_blank" rel="noopener noreferrer"
                onClick={() => track("clique_whatsapp", { origem: "agendar_pedido", servico: servico.slug })}>
