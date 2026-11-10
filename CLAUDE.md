@@ -40,6 +40,10 @@ Fontes: revisao-1-e-site-v2.md e animacoes-v2.md (Downloads do Jeff). Decisões 
 - QA 09/11/2026 (Chrome e WebKit; 360/390/768/1440): sem rolagem horizontal, 1 H1 por página, CTA do hero visível sem rolar no celular, intro 1x por sessão e pulável, movimento reduzido e sem JS OK, alvos de toque >= 44 px, agendamento OK. LCP local do Chromium sem throttling 104 ms e CLS 0 (não é medida em 4G). Vídeo da Home não gerado (sem ffmpeg compatível): prints e sequência WebKit em `entrega/v2/`.
 - Bug achado no teste e corrigido: a animação da moldura se chamava `spin` e colidia com a do Tailwind (girava a caixa); renomeada para `frame-spin`.
 
+## v7.3 (10/11/2026): assistente no botão flutuante
+- O botão redondo (e um ícone na barra do celular) abre o assistente de perguntas (`src/components/Assistente.tsx`, base em `src/content/assistente.ts`). NÃO é IA generativa: responde por palavras-chave só com fatos confirmados (serviços, horário e endereço do Perfil do Google, como agendar, parcelamento em até 4x). Preço, resultado, dor, gravidez e qualquer dúvida de saúde vão para o WhatsApp da Kamila, e o que não souber vira mensagem pronta no WhatsApp. Roda no navegador, não envia nem guarda o que a pessoa digita (Privacidade atualizada). Eventos GA4 `assistente_abrir` e `assistente_pergunta` (só o id da intenção).
+- Para virar agente de IA de verdade: precisa de backend (Cloudflare Worker) com chave de API, limite de uso, texto-base aprovado pela Kamila e filtro de saúde/estética/LGPD. Decisão do Jeff; custo e responsabilidade da agência.
+
 ## v7 (10/11/2026): site refeito com a estrutura e as animações do OS Clínica
 Pedido do Jeff: manter a identidade da Kamila (cores e fontes) e copiar a animação do OS Clínica (`E:\OS Clinica - Site\os-clinica`). Isso SUBSTITUI a regra da v4 "nada preso à rolagem": agora Lenis, vitrine fixa e frase por palavra são desejados.
 - Novo: `framer-motion`, `lenis`, `lucide-react` (gsap foi removido; o Lenis carrega 1,2 s depois do load). Primitivas em `src/components/motion/primitives.tsx` (Reveal, MaskLines, SectionHead, HairLine, Roll, hooks `useRichMotion`/`useReduce`). CSS novo com prefixo `x-` no fim de `globals.css`.

@@ -29,6 +29,9 @@ export default function Page() {
         <h2>Serviços de terceiros</h2>
         <p>A página de contato mostra um mapa do Google Maps. Ao carregá-lo, o Google pode registrar dados técnicos da sua visita (como o endereço de IP), conforme a política de privacidade do próprio Google. Os links para o Instagram e o WhatsApp abrem os respectivos serviços, com as regras de cada um.</p>
 
+        <h2>Assistente do site</h2>
+        <p>O assistente de perguntas roda no seu navegador e responde com as informações do site. O que você digita nele não é enviado nem guardado por nós. Só vai ao WhatsApp se você tocar no botão para enviar a pergunta.</p>
+
         <h2>Para que usamos</h2>
         <p>Para responder ao seu pedido de agendamento, tirar dúvidas e melhorar o site.</p>
 
