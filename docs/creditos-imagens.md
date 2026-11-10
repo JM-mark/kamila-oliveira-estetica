@@ -12,7 +12,7 @@ Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença 
 | `photos/marmore-*` | Pexels foto 6788338 | Polina | https://www.pexels.com/photo/close-up-shot-of-a-marble-6788338/ | Pexels | Fundo da seção "Onde estamos" | textura |
 | `photos/marmore2-*` | Pexels foto 36327398 | Andrea Prochilo | https://www.pexels.com/photo/intricate-black-marble-texture-with-white-veins-36327398/ | Pexels | Fundo de "Sobre" e das páginas de serviço | textura |
 | `photos/pampulha-*` | Pexels foto 32163514 | Jerson Martins | https://www.pexels.com/photo/modern-church-architecture-at-sunset-32163514/ | Pexels | "Onde estamos" (lugar, imagem ilustrativa) | atmosfera |
-| `video/tratamento.mp4` e `video/tratamento-poster.webp` | Pexels vídeo 3998272 (versão 2160x4096, recorte 16:9 da região da pele) | cottonbro studio | https://www.pexels.com/video/hands-woman-relaxation-luxury-3998272/ | Pexels | Fundo animado do hero, sob a Aurora | atmosfera (sem rosto) |
+| `video/tratamento.mp4` e `video/tratamento-poster.webp` | Pexels vídeo 6629846 (versão 1366x720) | KoolShooters | https://www.pexels.com/video/6629846/ | Pexels | Fundo animado do hero, sob a Aurora | atmosfera (só mãos, sem rosto) |
 | `og.png` | montagem própria: marmore + logo | Kalenza | | | Imagem de compartilhamento | |
 
 ## Da lista, mas NÃO usadas (e por quê)
@@ -31,7 +31,8 @@ Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença 
 |---|---|---|---|
 | `public/brand/kamila-*` (logo, borboleta e assinatura, versões escura e clara, em WebP) | Logo da Kamila, extraído da página de agendamento dela (agendeagora, 512x512), com fundo limpo e recorte, sem redesenho | Cabeçalho, rodapé, hero, preloader, ícones e imagem de compartilhamento | Provisório até o arquivo original chegar |
 | `public/espaco/hero-*` | Arte do Instagram (post DfH1JMgxp9O), recorte só da Kamila, sem texto | Hero da Home | **Precisa do aval escrito dela** |
-| `public/espaco/jaleco-*` | Quadro do Instagram da Kamila (post DeuO01HRLIg), recorte da foto dela sem o texto da arte | Seção Sobre e página /sobre/ | **Precisa do aval escrito dela** |
+| `public/espaco/estudio-*` | Arte do Instagram (post DeuMdb0xdmz), recorte só do rosto e ombros da Kamila, sem texto | "Quem atende" e /sobre | **Precisa do aval escrito dela** |
+| `public/espaco/jaleco-*` (removida) | Quadro do Instagram da Kamila (post DeuO01HRLIg), recorte da foto dela sem o texto da arte | Seção Sobre e página /sobre/ | **Precisa do aval escrito dela** |
 
 Os demais quadros extraídos do Instagram estão só em `_originais/instagram/` (fora do git e do site). Ver `docs/fotos-instagram.md`.
 

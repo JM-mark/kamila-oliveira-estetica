@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { useSyncExternalStore } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef, useSyncExternalStore } from "react";
 
 export const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -15,17 +15,26 @@ export function Reveal({ children, delay = 0, className = "", y = 20 }: { childr
   );
 }
 
+/** Uma linha de título: a caixa cortada é observada (e não o texto que está escondido dentro dela), senão ele nunca "entra na tela". */
+function MaskLine({ children, delay, reduce }: { children: React.ReactNode; delay: number; reduce: boolean | null }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <span ref={ref} className="x-mask">
+      <motion.span className="x-mask-in" initial={reduce ? false : { y: "112%" }} animate={{ y: inView || reduce ? "0%" : "112%" }} transition={{ duration: 0.9, delay, ease: EASE }}>
+        {children}
+      </motion.span>
+    </span>
+  );
+}
+
 /** Título em linhas com máscara: cada linha sobe de dentro de uma caixa cortada. */
 export function MaskLines({ lines, className = "", as: Tag = "h2", delay = 0 }: { lines: React.ReactNode[]; className?: string; as?: "h1" | "h2" | "h3"; delay?: number }) {
   const reduce = useReducedMotion();
   return (
     <Tag className={className}>
       {lines.map((l, i) => (
-        <span key={i} className="x-mask">
-          <motion.span className="x-mask-in" initial={reduce ? false : { y: "112%" }} whileInView={{ y: "0%" }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.9, delay: delay + i * 0.12, ease: EASE }}>
-            {l}
-          </motion.span>
-        </span>
+        <MaskLine key={i} delay={delay + i * 0.12} reduce={reduce}>{l}</MaskLine>
       ))}
     </Tag>
   );

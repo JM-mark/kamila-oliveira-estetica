@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { asset } from "@/lib/asset";
 
-/** Vídeo de atmosfera do hero (Pexels 3998272, cottonbro studio): óleo sobre as costas, luz quente, sem rosto. Fica no fundo do hero, sob a Aurora.
+/** Vídeo de atmosfera do hero (Pexels 6629846, KoolShooters): vela de massagem derramando óleo morno sobre a mão, luz quente, sem rosto. Fica no fundo do hero, sob a Aurora.
  *  275 KB, sem áudio. Só começa depois do carregamento, para durante a ausência na tela e não toca com movimento reduzido (fica o quadro de capa). */
 export default function HeroVideo() {
   const ref = useRef<HTMLVideoElement>(null);

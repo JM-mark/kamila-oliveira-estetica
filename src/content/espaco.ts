@@ -3,4 +3,4 @@
 // Arquivos em /public/espaco, gerados por scripts/process-espaco.mjs.
 export type FotoReal = { name: string; alt: string; caption: string };
 
-export const FOTO_SOBRE: FotoReal = { name: "jaleco", alt: "Kamila Oliveira de jaleco claro, olhando para a câmera", caption: "Kamila Oliveira" };
+export const FOTO_SOBRE: FotoReal = { name: "estudio", alt: "Retrato de Kamila Oliveira, sorrindo, de blusa preta e argolas douradas", caption: "Kamila Oliveira" };

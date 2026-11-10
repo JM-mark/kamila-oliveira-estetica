@@ -47,6 +47,8 @@ Pedido do Jeff: manter a identidade da Kamila (cores e fontes) e copiar a anima�
 - Home: Hero, Diferenciais, frase que acende palavra por palavra, cartões de serviço com lista fixa, vitrine fixa "Em destaque" com contador, Quem atende (arco com foto e pilares), Instagram, jornada fixa em 3 passos, avaliação do Google, Onde estamos, fechamento. Páginas de serviço e Sobre no mesmo idioma (arco, máscara, linhas que se desenham). Barra fixa no celular e botão redondo do WhatsApp no desktop.
 - Efeitos presos à rolagem só em telas >= 1024 px e sem "reduzir movimento"; no celular entram listas simples com Reveal.
 - Lighthouse celular 88-89 / 100 / 100 / 66. QA Chrome e WebKit (360 a 1440): sem rolagem horizontal, 1 H1, menu, vitrine fixa, agendamento, reduced motion e sem JS OK. Prints em `entrega/v7/`.
+- Foto do "Quem atende" (Home) e do /sobre: retrato de estúdio da Kamila (arte "Redução de medidas", fundo preto, blusa preta), `public/espaco/estudio-*`; aval escrito dela pendente. Bug achado pelo Jeff e corrigido: os títulos em máscara (`MaskLines`) não apareciam porque o observador olhava o texto escondido; agora observa a caixa.
+- Vídeo do hero trocado (10/11/2026): Pexels 6629846 (KoolShooters), vela de massagem derramando óleo sobre a mão, 267 KB; o anterior (3998272) saiu. As opções do Pixabay vistas eram de IA ou com massagista homem de rosto visível, e foram descartadas.
 - Não copiado: agendamento embutido na Home (o OS tem; aqui continua em `/agendar/` por decisão anterior), FAQ e prova social com nota (sem dado real).
 
 ## v6.3 (10/11/2026): celular, SEO e copy
