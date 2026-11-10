@@ -12,7 +12,7 @@ Todas as imagens abaixo são **atmosfera** de banco de imagem (Pexels, licença 
 | `photos/marmore-*` | Pexels foto 6788338 | Polina | https://www.pexels.com/photo/close-up-shot-of-a-marble-6788338/ | Pexels | Fundo da seção "Onde estamos" | textura |
 | `photos/marmore2-*` | Pexels foto 36327398 | Andrea Prochilo | https://www.pexels.com/photo/intricate-black-marble-texture-with-white-veins-36327398/ | Pexels | Fundo de "Sobre" e das páginas de serviço | textura |
 | `photos/pampulha-*` | Pexels foto 32163514 | Jerson Martins | https://www.pexels.com/photo/modern-church-architecture-at-sunset-32163514/ | Pexels | "Onde estamos" (lugar, imagem ilustrativa) | atmosfera |
-| `video/tratamento.mp4` e `video/tratamento-poster.webp` | Pexels vídeo 6629846 (versão 1366x720) | KoolShooters | https://www.pexels.com/video/6629846/ | Pexels | Fundo animado do hero, sob a Aurora | atmosfera (só mãos, sem rosto) |
+| `video/tratamento.mp4` e `video/tratamento-poster.webp` | Pexels vídeo 6629717 (versão 1366x720) | KoolShooters | https://www.pexels.com/video/6629717/ | Pexels | Fundo animado do hero, sob a Aurora | atmosfera (mãos e costas, sem rosto) |
 | `og.png` | montagem própria: marmore + logo | Kalenza | | | Imagem de compartilhamento | |
 
 ## Da lista, mas NÃO usadas (e por quê)
