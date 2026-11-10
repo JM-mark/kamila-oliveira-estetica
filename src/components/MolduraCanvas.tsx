@@ -40,7 +40,7 @@ void main(){
   gl_FragColor = vec4(col, a);
 }`;
 
-/** Canvas da Moldura, posto sobre a borda de uma foto ou card. Só no desktop com mouse e sem "reduzir movimento": no resto, vale a borda dourada estática de 1 px. */
+/** Canvas da Moldura, posto sobre a borda de uma foto ou card. No desktop a luz segue o cursor; no celular (sem mouse) ela percorre a borda sozinha. Com "reduzir movimento" ou sem WebGL, vale a borda dourada estática de 1 px. */
 export default function MolduraCanvas({ target }: { target: React.RefObject<HTMLElement | null> }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -48,7 +48,8 @@ export default function MolduraCanvas({ target }: { target: React.RefObject<HTML
     const canvas = ref.current;
     const host = target.current;
     if (!canvas || !host) return;
-    if (reducedMotion() || !finePointer()) return;
+    if (reducedMotion()) return;
+    const touch = !finePointer();
     const gl = getGL(canvas, true);
     if (!gl) return;
     const prog = createProgram(gl, FRAG);
@@ -74,6 +75,12 @@ export default function MolduraCanvas({ target }: { target: React.RefObject<HTML
     const draw = (t: number) => {
       size();
       const W = canvas.width, H = canvas.height;
+      if (touch) { // sem mouse: o ponto de luz orbita a moldura devagar
+        const a = t * 0.5;
+        mouse.tx = W / 2 + Math.cos(a) * W * 0.5;
+        mouse.ty = H / 2 + Math.sin(a) * H * 0.5;
+        mouse.ton = 1;
+      }
       mouse.x += (mouse.tx - mouse.x) * 0.08;
       mouse.y += (mouse.ty - mouse.y) * 0.08;
       mouse.on += (mouse.ton - mouse.on) * 0.06;

@@ -251,9 +251,9 @@ export default function Stepper() {
       <aside className="ag-side" aria-label="Seu pedido">
         <h3>Seu pedido</h3>
         <dl>
-          <div><dt>Serviço</dt><dd>{escolhidos.length ? escolhidos.map((e) => e.item).join(", ") : "—"}</dd></div>
-          <div><dt>Data</dt><dd>{dia ? fmtData(dia) : "—"}</dd></div>
-          <div><dt>{hora ? "Horário" : "Período"}</dt><dd>{step >= 1 ? hora || periodo : "—"}</dd></div>
+          <div><dt>Serviço</dt><dd>{escolhidos.length ? escolhidos.map((e) => e.item).join(", ") : "A escolher"}</dd></div>
+          <div><dt>Data</dt><dd>{dia ? fmtData(dia) : "A escolher"}</dd></div>
+          <div><dt>{hora ? "Horário" : "Período"}</dt><dd>{step >= 1 ? hora || periodo : "A escolher"}</dd></div>
         </dl>
         <p className="hint">A Kamila confirma o horário pelo WhatsApp.</p>
         {ENDERECO_CONFIRMADO && ENDERECO ? (<div className="ag-info"><span>Onde</span><p>{ENDERECO}. {SITE.neighborhood}, {SITE.city}-{SITE.region}.</p></div>) : null}

@@ -6,7 +6,7 @@ import { ENDERECO, ENDERECO_CONFIRMADO, HORARIO, HORARIO_CONFIRMADO, SITE } from
 
 export const metadata: Metadata = {
   title: "Contato e localização | Kamila Oliveira Estética",
-  description: "Fale com a Kamila Oliveira Estética pelo WhatsApp. Atendimento em Santa Amélia, região da Pampulha, Belo Horizonte.",
+  description: "Endereço, horário e WhatsApp da Kamila Oliveira Estética, na Rua Monsueto Filizzola, 16, Santa Amélia, região da Pampulha, em Belo Horizonte.",
   alternates: canon("/contato/"),
 };
 

@@ -19,7 +19,7 @@ export default function HeroVideo() {
     const t = setTimeout(() => {
       if (document.readyState === "complete") start();
       else window.addEventListener("load", start, { once: true });
-    }, window.matchMedia("(max-width: 900px)").matches ? 4200 : 2200);
+    }, window.matchMedia("(max-width: 900px)").matches ? 3200 : 2200);
     return () => { clearTimeout(t); window.removeEventListener("load", start); io?.disconnect(); };
   }, []);
   return (

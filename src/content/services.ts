@@ -22,7 +22,7 @@ export const SERVICES: Service[] = [
     title: "Depilação a laser",
     short: "Áreas do rosto e do corpo, em sessões avulsas ou em pacotes de 10 sessões.",
     intro:
-      "Depilação a laser para áreas do rosto e do corpo, feita em sessões individuais ou em pacotes de 10 sessões. Escolha a área, diga o dia que prefere e a gente confirma o horário pelo WhatsApp.",
+      "Depilação a laser para áreas do rosto e do corpo, feita em sessões individuais ou em pacotes de 10 sessões. Escolha a área e o dia que prefere, e a Kamila confirma o horário pelo WhatsApp.",
     items: [
       "Buço, queixo e aréola",
       "Axila, rosto e linha alba",

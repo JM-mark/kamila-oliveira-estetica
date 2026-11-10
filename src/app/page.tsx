@@ -16,24 +16,24 @@ import { ENDERECO, HORARIO, HORARIO_CONFIRMADO, SITE } from "@/content/site";
 import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
-  title: "Estética na Pampulha, BH: laser e limpeza de pele | Kamila Oliveira",
+  title: "Estética na Pampulha, BH: laser e pele | Kamila Oliveira",
   description:
-    "Depilação a laser, limpeza de pele e protocolos corporais em Santa Amélia, região da Pampulha, em Belo Horizonte. Agende pelo WhatsApp.",
+    "Depilação a laser, limpeza de pele e estética corporal em Santa Amélia, Pampulha (BH). Atendimento de terça a sábado, com agendamento pelo WhatsApp.",
   alternates: canon("/"),
 };
 
 // Só fatos do briefing e do Instagram da cliente, com // TODO para ela confirmar. Sem anos de experiência, número de clientes ou prêmios.
 const DIFERENCIAIS = [
-  { n: "01", t: "Protocolo autoral", d: "A Lipo com as mãos é um protocolo manual criado pela própria Kamila, voltado à redução de medidas." },
+  { n: "01", t: "Protocolo autoral", d: "A Lipo com as mãos foi criada pela própria Kamila e é um protocolo manual voltado à redução de medidas." },
   // TODO a Kamila confirmar o parcelamento (visto em post do Instagram dela).
-  { n: "02", t: "Parcelamento em até 4x", d: "Os serviços podem ser parcelados em até 4x." },
+  { n: "02", t: "Parcele em até 4x", d: "Você pode dividir o valor dos serviços em até 4x." },
   { n: "03", t: "Fácil de chegar", d: "Esquina com a Avenida Guarapari, em Santa Amélia." },
 ];
 
 const PASSOS = [
   { t: "Escolha o serviço", d: "Laser, pele ou corpo, e a área ou o pacote que você quer." },
   { t: "Diga o dia e o período", d: "Informe o dia e o período em que prefere vir." },
-  { t: "Confirme pelo WhatsApp", d: "Seu pedido chega pronto e a gente confirma o horário com você." },
+  { t: "Confirme pelo WhatsApp", d: "Seu pedido chega pronto e a Kamila confirma o horário com você." },
 ];
 
 export default function Home() {
@@ -48,7 +48,7 @@ export default function Home() {
         <div className="wrap">
           <Reveal><p className="eyebrow">Serviços</p></Reveal>
           <SplitText text="Escolha por onde começar" as="h2" />
-          <Reveal><p className="lead" style={{ marginTop: 14 }}>Passe o mouse ou toque em um serviço para ver as áreas e agendar.</p></Reveal>
+          <Reveal><p className="lead" style={{ marginTop: 14 }}>Toque em um serviço para ver as áreas e agendar.</p></Reveal>
           <ServicesAccordion />
         </div>
       </section>
@@ -56,7 +56,7 @@ export default function Home() {
       <section className="section dark marble" style={marble2}>
         <div className="wrap">
           <Reveal><p className="eyebrow">Diferenciais</p></Reveal>
-          <SplitText text="O cuidado que você encontra aqui" as="h2" />
+          <SplitText text="Bom saber antes de agendar" as="h2" />
           <div className="difs">
             {DIFERENCIAIS.map((d) => (
               <Reveal key={d.n}>
@@ -82,13 +82,13 @@ export default function Home() {
             </GoldFrame>
           </Reveal>
           <div>
-            <Reveal><p className="eyebrow">Sobre a Kamila</p></Reveal>
-            <SplitText text="Conheça quem cuida de você" as="h2" />
+            <Reveal><p className="eyebrow">Quem atende</p></Reveal>
+            <SplitText text="Kamila Oliveira" as="h2" />
             <Reveal>
               <p className="lead">
-                Conheça a Kamila Oliveira, o jeito como ela trabalha e o que cada serviço oferece.
+                Atende de terça a sábado, com horário marcado pelo WhatsApp.
               </p>
-              <div className="btn-row"><Link className="btn ghost" href="/sobre/">Conhecer a Kamila</Link></div>
+              <div className="btn-row"><Link className="btn ghost" href="/sobre/">Sobre a Kamila</Link></div>
             </Reveal>
           </div>
         </div>
@@ -112,8 +112,8 @@ export default function Home() {
       <section className="section sand">
         <div className="wrap split">
           <div>
-            <Reveal><p className="eyebrow">Como agendar</p></Reveal>
-            <SplitText text="Três passos para agendar" as="h2" />
+            <Reveal><p className="eyebrow">Como funciona</p></Reveal>
+            <SplitText text="Agende em três passos" as="h2" />
             <div className="steps-3 steps-col">
               {PASSOS.map((p, i) => (
                 <Reveal key={p.t}>
@@ -164,7 +164,7 @@ export default function Home() {
               <div className="in cta-card">
                 <p className="eyebrow" style={{ marginInline: "auto" }}>Agende</p>
                 <h2 style={{ maxWidth: "22ch", margin: "0 auto 14px" }}>Seu horário começa numa mensagem</h2>
-                <p className="lead" style={{ margin: "0 auto" }}>Conte o que você procura e receba a resposta pelo WhatsApp.</p>
+                <p className="lead" style={{ margin: "0 auto" }}>Diga o que você procura e a resposta chega pelo WhatsApp.</p>
                 <div className="btn-row" style={{ justifyContent: "center" }}>
                   <AgendarButton className="btn light" origem="home_final" />
                 </div>

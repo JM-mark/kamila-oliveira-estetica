@@ -36,12 +36,18 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BeautySalon",
+  "@id": `${SITE.siteUrl.replace(/\/$/, "")}/#salao`,
   name: SITE.name,
-  // TODO telefone (WhatsApp confirmado), endereço completo e horário: entram só quando a Kamila confirmar. Sem aggregateRating.
+  url: SITE.siteUrl,
+  // Telefone, endereço e horário conferidos no Perfil do Google (10/11/2026); TODO a Kamila confirmar. Sem aggregateRating (só 2 avaliações).
+  telephone: `+${SITE.whatsapp}`,
+  image: `${SITE.siteUrl.replace(/\/$/, "")}/og.png`,
+  geo: { "@type": "GeoCoordinates", latitude: -19.8443881, longitude: -43.9768662 },
+  hasMap: SITE.googlePerfil,
   address: { "@type": "PostalAddress", addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: "BR", ...(ENDERECO_CONFIRMADO && ENDERECO ? { streetAddress: ENDERECO } : {}) },
   ...(HORARIO_CONFIRMADO && HORARIO ? { openingHours: HORARIO_SCHEMA } : {}),
   areaServed: `${SITE.neighborhood}, ${SITE.area}, ${SITE.city}`,
-  sameAs: [SITE.instagram],
+  sameAs: [SITE.instagram, SITE.googlePerfil],
 };
 
 // Liga a intro só na 1ª visita da sessão, sem movimento reduzido e sem conexão lenta ou economia de dados.

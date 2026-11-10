@@ -9,7 +9,7 @@ import { FOTO_SOBRE } from "@/content/espaco";
 
 export const metadata: Metadata = {
   title: "Sobre a Kamila Oliveira | Estética em Santa Amélia, BH",
-  description: "Conheça a Kamila Oliveira e o cuidado que ela oferece em Santa Amélia, região da Pampulha, em Belo Horizonte.",
+  description: "Conheça a Kamila Oliveira, o espaço dela em Santa Amélia, região da Pampulha, em Belo Horizonte, e veja como agendar seu horário.",
   alternates: canon("/sobre/"),
 };
 

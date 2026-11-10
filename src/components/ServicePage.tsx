@@ -41,9 +41,9 @@ export default function ServicePage({ s }: { s: Service }) {
       <section className="section sand">
         <div className="wrap">
           <Reveal>
-            <p className="eyebrow">Próximo passo</p>
-            <h2 style={{ maxWidth: "18ch" }}>Conte o que você procura</h2>
-            <p className="lead" style={{ marginTop: 14 }}>Escolha o serviço, diga o dia e o período que prefere e a gente confirma o horário pelo WhatsApp.</p>
+            <p className="eyebrow">Agende</p>
+            <h2 style={{ maxWidth: "22ch" }}>{`Marque ${s.title.toLowerCase()}`}</h2>
+            <p className="lead" style={{ marginTop: 14 }}>Escolha a área, o dia e o período. A Kamila confirma o horário pelo WhatsApp.</p>
             <div className="btn-row">
               <AgendarButton origem={`servico_${s.slug}_final`} servico={s.slug} />
             </div>

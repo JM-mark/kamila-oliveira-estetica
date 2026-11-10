@@ -4,7 +4,7 @@ import Stepper from "@/components/Stepper";
 
 export const metadata: Metadata = {
   title: "Agendar horário | Kamila Oliveira Estética",
-  description: "Escolha o serviço, o dia e o período e envie pelo WhatsApp. A confirmação do horário é feita pela Kamila.",
+  description: "Escolha o serviço, o dia e o período em poucos passos e envie o pedido pelo WhatsApp. A Kamila confirma o horário com você.",
   alternates: canon("/agendar/"),
 };
 

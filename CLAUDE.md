@@ -40,6 +40,11 @@ Fontes: revisao-1-e-site-v2.md e animacoes-v2.md (Downloads do Jeff). Decisões 
 - QA 09/11/2026 (Chrome e WebKit; 360/390/768/1440): sem rolagem horizontal, 1 H1 por página, CTA do hero visível sem rolar no celular, intro 1x por sessão e pulável, movimento reduzido e sem JS OK, alvos de toque >= 44 px, agendamento OK. LCP local do Chromium sem throttling 104 ms e CLS 0 (não é medida em 4G). Vídeo da Home não gerado (sem ffmpeg compatível): prints e sequência WebKit em `entrega/v2/`.
 - Bug achado no teste e corrigido: a animação da moldura se chamava `spin` e colidia com a do Tailwind (girava a caixa); renomeada para `frame-spin`.
 
+## v6.3 (10/11/2026): celular, SEO e copy
+- Animações no celular: o shader Moldura agora roda também sem mouse (a luz percorre a borda sozinha) e só carrega quando a moldura chega perto da tela; Aurora e vídeo do hero também rodam no celular (início em 4,2 s e 3,2 s). Movimento reduzido continua parado.
+- SEO e copy: ver `docs/auditoria-seo-copy.md` (títulos, descrições, schema com telefone/geo/Perfil do Google, textos revisados).
+- Lighthouse celular 89 / 100 / 100 / 66 (3 rodadas iguais; LCP de laboratório 3,7 s). Para 90+, tirar o vídeo no celular.
+
 ## v6.2 (10/11/2026): hero com vídeo, Google Maps
 - Hero: vídeo de tratamento (Pexels 3998272, cottonbro studio; óleo sobre a pele, sem rosto) no FUNDO, sob a Aurora (mix-blend screen), com título à esquerda e SEM moldura/card (pedido do Jeff). 243 KB; só começa após o load (2,2 s desktop, 4,2 s celular), pausa fora da tela, parado com movimento reduzido. A foto da Kamila saiu do hero (arquivos removidos).
 - Google Maps (Chrome do Jeff): o Perfil existe, 5,0 com 2 avaliações. Dados confirmados lá: endereço, telefone igual ao do site, horário terça a sábado 8h às 18h. Entraram: horário no site (`HORARIO`, JSON-LD `openingHours`), dias fechados no calendário do agendamento (domingo e segunda), "Como chegar" pelo Perfil, e 1 trecho de avaliação em "No Google" na Home (sem nota nem contagem; TODO aval da Kamila). A avaliação que fala em "resultado" ficou de fora.
