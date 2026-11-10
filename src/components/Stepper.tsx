@@ -226,12 +226,12 @@ export default function Stepper() {
               <div><dt>Nome</dt><dd>{nome.trim()}</dd></div>
             </dl>
             <div className="btn-row" style={{ marginTop: 22 }}>
-              <a className="btn" href={waLink(mensagem)} target="_blank" rel="noopener noreferrer"
+              <a className="x-btn dark" href={waLink(mensagem)} target="_blank" rel="noopener noreferrer"
                 onClick={() => track("clique_whatsapp", { origem: "agendar_pedido", servicos: String(escolhidos.length) })}>
                 Enviar pelo WhatsApp
               </a>
               {SITE.agendaEnabled && (
-                <a className="btn ghost" href={SITE.agendaUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("clique_agenda", { origem: "agendar_resumo" })}>
+                <a className="x-btn outline-dark" href={SITE.agendaUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("clique_agenda", { origem: "agendar_resumo" })}>
                   Ver agenda online
                 </a>
               )}
@@ -243,8 +243,8 @@ export default function Stepper() {
         {erro && <p className="error" role="alert">{erro}</p>}
 
         <div className="btn-row">
-          {step > 0 && (<button type="button" className="btn ghost" onClick={() => { setErro(""); irPara(step - 1); }}>Voltar</button>)}
-          {step < 3 && (<button type="button" className="btn" onClick={avancar}>{step === 2 ? "Ver meu pedido" : "Continuar"}</button>)}
+          {step > 0 && (<button type="button" className="x-btn outline-dark" onClick={() => { setErro(""); irPara(step - 1); }}>Voltar</button>)}
+          {step < 3 && (<button type="button" className="x-btn dark" onClick={avancar}>{step === 2 ? "Ver meu pedido" : "Continuar"}</button>)}
         </div>
       </div>
 

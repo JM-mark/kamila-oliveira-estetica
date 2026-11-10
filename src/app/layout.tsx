@@ -3,7 +3,8 @@ import { Gilda_Display, Marcellus, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import WaFloat from "@/components/WaFloat";
+import FloatingCta from "@/components/FloatingCta";
+import SmoothScroll from "@/components/SmoothScroll";
 import Cursor from "@/components/Cursor";
 import Intro from "@/components/Intro";
 import Magnetic from "@/components/Magnetic";
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${display.variable} ${label.variable} ${body.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
+        <noscript><style>{'[style*="opacity:0"],[style*="translateY"],[style*="scaleX"],[style*="scaleY"]{opacity:1!important;transform:none!important}'}</style></noscript>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {SITE.gaId ? (
           <>
@@ -73,11 +75,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Cursor />
         <Magnetic />
         <NavReady />
+        <SmoothScroll />
         <a className="skip" href="#conteudo">Ir para o conteúdo</a>
         <Header />
         <main id="conteudo">{children}</main>
         <Footer />
-        <WaFloat />
+        <FloatingCta />
       </body>
     </html>
   );

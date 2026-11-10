@@ -30,7 +30,7 @@ export default function InstagramSection() {
           ))}
         </StaggerGrid>
         <div className="btn-row">
-          <a className="btn ghost" href={SITE.instagram} target="_blank" rel="noopener noreferrer">Seguir {SITE.instagramHandle}</a>
+          <a className="x-btn outline-light" href={SITE.instagram} target="_blank" rel="noopener noreferrer">Seguir {SITE.instagramHandle}</a>
         </div>
       </div>
     </section>

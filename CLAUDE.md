@@ -40,6 +40,15 @@ Fontes: revisao-1-e-site-v2.md e animacoes-v2.md (Downloads do Jeff). Decisões 
 - QA 09/11/2026 (Chrome e WebKit; 360/390/768/1440): sem rolagem horizontal, 1 H1 por página, CTA do hero visível sem rolar no celular, intro 1x por sessão e pulável, movimento reduzido e sem JS OK, alvos de toque >= 44 px, agendamento OK. LCP local do Chromium sem throttling 104 ms e CLS 0 (não é medida em 4G). Vídeo da Home não gerado (sem ffmpeg compatível): prints e sequência WebKit em `entrega/v2/`.
 - Bug achado no teste e corrigido: a animação da moldura se chamava `spin` e colidia com a do Tailwind (girava a caixa); renomeada para `frame-spin`.
 
+## v7 (10/11/2026): site refeito com a estrutura e as animações do OS Clínica
+Pedido do Jeff: manter a identidade da Kamila (cores e fontes) e copiar a animação do OS Clínica (`E:\OS Clinica - Site\os-clinica`). Isso SUBSTITUI a regra da v4 "nada preso à rolagem": agora Lenis, vitrine fixa e frase por palavra são desejados.
+- Novo: `framer-motion`, `lenis`, `lucide-react` (gsap foi removido; o Lenis carrega 1,2 s depois do load). Primitivas em `src/components/motion/primitives.tsx` (Reveal, MaskLines, SectionHead, HairLine, Roll, hooks `useRichMotion`/`useReduce`). CSS novo com prefixo `x-` no fim de `globals.css`.
+- Header: pílulas de vidro sobre o hero, barra clara depois, menu em tela cheia que desce em cortina (clip-path). Hero: vídeo + Aurora ao fundo, título por palavra em máscara (em CSS, sem esperar JS), arco claro com a logo e anel de texto que cresce e gira ao rolar (desktop).
+- Home: Hero, Diferenciais, frase que acende palavra por palavra, cartões de serviço com lista fixa, vitrine fixa "Em destaque" com contador, Quem atende (arco com foto e pilares), Instagram, jornada fixa em 3 passos, avaliação do Google, Onde estamos, fechamento. Páginas de serviço e Sobre no mesmo idioma (arco, máscara, linhas que se desenham). Barra fixa no celular e botão redondo do WhatsApp no desktop.
+- Efeitos presos à rolagem só em telas >= 1024 px e sem "reduzir movimento"; no celular entram listas simples com Reveal.
+- Lighthouse celular 88-89 / 100 / 100 / 66. QA Chrome e WebKit (360 a 1440): sem rolagem horizontal, 1 H1, menu, vitrine fixa, agendamento, reduced motion e sem JS OK. Prints em `entrega/v7/`.
+- Não copiado: agendamento embutido na Home (o OS tem; aqui continua em `/agendar/` por decisão anterior), FAQ e prova social com nota (sem dado real).
+
 ## v6.3 (10/11/2026): celular, SEO e copy
 - Animações no celular: o shader Moldura agora roda também sem mouse (a luz percorre a borda sozinha) e só carrega quando a moldura chega perto da tela; Aurora e vídeo do hero também rodam no celular (início em 4,2 s e 3,2 s). Movimento reduzido continua parado.
 - SEO e copy: ver `docs/auditoria-seo-copy.md` (títulos, descrições, schema com telefone/geo/Perfil do Google, textos revisados).

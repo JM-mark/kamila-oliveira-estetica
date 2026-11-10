@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { track } from "@/lib/track";
+import { Roll } from "./motion/primitives";
 
 type Props = {
   label?: string;
@@ -12,14 +13,14 @@ type Props = {
 };
 
 /** Todo botão "Agendar" do site leva a /agendar/ (o fluxo em 4 etapas). "Falar no WhatsApp" é outro botão e vai direto ao WhatsApp. */
-export default function AgendarButton({ label = "Agendar", servico, origem, className = "btn" }: Props) {
+export default function AgendarButton({ label = "Agendar", servico, origem, className = "x-btn dark" }: Props) {
   return (
     <Link
       className={className}
       href={servico ? `/agendar/?servico=${servico}` : "/agendar/"}
       onClick={() => track("clique_agenda", { origem, ...(servico ? { servico } : {}) })}
     >
-      {label}
+      <Roll>{label}</Roll>
     </Link>
   );
 }

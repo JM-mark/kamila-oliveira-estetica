@@ -1,6 +1,7 @@
 "use client";
 
 import { track } from "@/lib/track";
+import { Roll } from "./motion/primitives";
 import { waLink, WA_DEFAULT } from "@/lib/wa";
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
   className?: string;
 };
 
-export default function WaButton({ label = "Falar no WhatsApp", message = WA_DEFAULT, origem, className = "btn" }: Props) {
+export default function WaButton({ label = "Falar no WhatsApp", message = WA_DEFAULT, origem, className = "x-btn dark" }: Props) {
   return (
     <a
       className={className}
@@ -19,7 +20,7 @@ export default function WaButton({ label = "Falar no WhatsApp", message = WA_DEF
       rel="noopener noreferrer"
       onClick={() => track("clique_whatsapp", { origem })}
     >
-      {label}
+      <Roll>{label}</Roll>
     </a>
   );
 }

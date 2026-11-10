@@ -1,52 +1,58 @@
-import { asset } from "@/lib/asset";
 import type { Service } from "@/content/services";
-import GoldFrame from "./GoldFrame";
+import { asset } from "@/lib/asset";
 import Photo from "./Photo";
-import Reveal from "./Reveal";
 import AgendarButton from "./AgendarButton";
 import WaButton from "./WaButton";
+import { HairLine, MaskLines, Reveal } from "./motion/primitives";
 
+/** Página de serviço no mesmo idioma da Home: título em máscara, arco com foto, lista numerada com linhas que se desenham e fechamento escuro. */
 export default function ServicePage({ s }: { s: Service }) {
   const msg = `Olá! Vim pelo site e gostaria de agendar: ${s.title}.`;
+  const [a, ...resto] = s.title.split(" ");
+  const b = resto.join(" ");
   return (
     <>
-      <section className="hero-dark">
-        <div className="wrap split">
+      <section className="x-sec x-dark x-svc-hero">
+        <div className="x-wrap x-about-grid">
           <div>
-            <p className="eyebrow">Santa Amélia · Pampulha · Belo Horizonte</p>
-            <h1>{s.title}</h1>
-            <p className="lead">{s.intro}</p>
-            <div className="btn-row">
-              <AgendarButton origem={`servico_${s.slug}_hero`} servico={s.slug} />
-              <WaButton className="btn ghost" origem={`servico_${s.slug}_hero`} message={msg} label="Falar no WhatsApp" />
-            </div>
+            <Reveal><p className="x-eyebrow on-dark">Santa Amélia · Pampulha · Belo Horizonte</p></Reveal>
+            <MaskLines as="h1" className="x-h2" lines={b ? [a, <em key="b" className="ac">{b}</em>] : [<em key="a" className="ac">{a}</em>]} />
+            <Reveal delay={0.1}>
+              <p className="x-lead on-dark">{s.intro}</p>
+              <div className="x-btn-row">
+                <AgendarButton origem={`servico_${s.slug}_hero`} servico={s.slug} className="x-btn light" />
+                <WaButton className="x-btn outline-light" origem={`servico_${s.slug}_hero`} message={msg} label="Falar no WhatsApp" />
+              </div>
+            </Reveal>
           </div>
-          <GoldFrame><div className="in photo-box" data-cursor="ver"><Photo name={s.photo} alt={s.photoAlt} priority sizes="(min-width: 900px) 40vw, 90vw" /></div></GoldFrame>
-        </div>
-      </section>
-
-      <section className="section dark marble" style={{ paddingTop: 0, ["--bg" as string]: `url(${asset("/photos/marmore2-1280.webp")})` }}>
-        <div className="wrap">
-          <Reveal>
-            <hr className="gold-rule" />
-            <p className="eyebrow">O que você encontra aqui</p>
-            <h2>{s.title}</h2>
-            <ul className="list">
-              {s.items.map((i) => (<li key={i}>{i}</li>))}
-            </ul>
+          <Reveal className="x-arch-photo">
+            <div className="x-arch-p" data-cursor="ver"><Photo name={s.photo} alt={s.photoAlt} priority sizes="(min-width: 900px) 34vw, 80vw" /></div>
           </Reveal>
         </div>
       </section>
 
-      <section className="section sand">
-        <div className="wrap">
+      <section className="x-sec x-sand">
+        <div className="x-wrap">
+          <Reveal><p className="x-eyebrow">O que você encontra aqui</p></Reveal>
+          <MaskLines className="x-h2" lines={[s.title]} />
+          <ol className="x-opts">
+            {s.items.map((i, k) => (
+              <li key={i}>
+                <HairLine className="x-opt-line" />
+                <Reveal delay={0.05} className="x-opt-row"><span className="x-num">{String(k + 1).padStart(2, "0")}</span><span className="x-opt-t">{i}</span></Reveal>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="x-sec x-dark x-marble x-final" style={{ ["--bg" as string]: `url(${asset("/photos/marmore2-1280.webp")})` }}>
+        <div className="x-wrap">
           <Reveal>
-            <p className="eyebrow">Agende</p>
-            <h2 style={{ maxWidth: "22ch" }}>{`Marque ${s.title.toLowerCase()}`}</h2>
-            <p className="lead" style={{ marginTop: 14 }}>Escolha a área, o dia e o período. A Kamila confirma o horário pelo WhatsApp.</p>
-            <div className="btn-row">
-              <AgendarButton origem={`servico_${s.slug}_final`} servico={s.slug} />
-            </div>
+            <p className="x-eyebrow center on-dark">Agende</p>
+            <h2 className="x-h2 center" style={{ maxWidth: "20ch", margin: "18px auto 0" }}>{`Marque ${s.title.toLowerCase()}`}</h2>
+            <p className="x-lead on-dark center">Escolha a área, o dia e o período. A Kamila confirma o horário pelo WhatsApp.</p>
+            <div className="x-btn-row center"><AgendarButton origem={`servico_${s.slug}_final`} servico={s.slug} className="x-btn light" /></div>
           </Reveal>
         </div>
       </section>
