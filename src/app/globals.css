@@ -635,3 +635,21 @@ html.has-cursor input[type="text"], html.has-cursor input[type="date"] { cursor:
 .ag-info span { font-family: var(--font-label), serif; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.75rem; color: var(--suave); }
 .ag-info p { margin: 6px 0 0; font-size: 0.9375rem; line-height: 1.5; }
 textarea { width: 100%; font: inherit; padding: 12px 14px; border: 1px solid rgba(15, 13, 11, 0.3); background: #fff; resize: vertical; }
+
+/* vídeo de atmosfera dentro da Moldura do hero */
+.hero-video-box { position: relative; background: #0f0d0b; }
+.hero-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hero-video-box::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(15, 13, 11, 0.35), transparent 40%); }
+
+/* avaliação real do Google */
+.review { max-width: 760px; margin: 0; padding: 0; border: 0; }
+.review blockquote { margin: 18px 0 0; font-family: var(--font-display), serif; font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem); line-height: 1.25; color: var(--preto); }
+.review figcaption { margin-top: 16px; color: var(--cinza); font-size: 0.9375rem; }
+
+/* v6.2: vídeo de tratamento no fundo do hero, com a Aurora por cima (sem moldura) */
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+.aurora-fx { position: absolute; inset: 0; mix-blend-mode: screen; opacity: 0.8; }
+.hero-aurora::before { background: linear-gradient(90deg, rgba(15, 13, 11, 0.8), rgba(15, 13, 11, 0.42) 55%, rgba(15, 13, 11, 0.28)); }
+@media (max-width: 899px) { .hero-aurora::before { background: linear-gradient(180deg, rgba(15, 13, 11, 0.72), rgba(15, 13, 11, 0.5)); } }
+.hero-aurora .content { grid-column: 1 / span 8; }
+.review a { color: var(--ouro-p); text-decoration: underline; text-underline-offset: 4px; }

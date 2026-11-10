@@ -12,7 +12,7 @@ import SplitText from "@/components/SplitText";
 import AgendarButton from "@/components/AgendarButton";
 import WaButton from "@/components/WaButton";
 import { FOTO_SOBRE } from "@/content/espaco";
-import { ENDERECO, SITE } from "@/content/site";
+import { ENDERECO, HORARIO, HORARIO_CONFIRMADO, SITE } from "@/content/site";
 import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
@@ -96,6 +96,19 @@ export default function Home() {
 
       <InstagramSection />
 
+      {/* Avaliação real do Google (Perfil da Kamila, 10/11/2026). Sem nota média nem contagem. TODO aval da Kamila para exibir. */}
+      <section className="section">
+        <div className="wrap">
+          <Reveal>
+            <figure className="review">
+              <p className="eyebrow">No Google</p>
+              <blockquote>“Trabalho impecável, atendimento maravilhoso. Kamila é extremamente atenciosa, e muito boa em tudo que faz.”</blockquote>
+              <figcaption>Avaliação de uma cliente no Google. <a className="link" href={SITE.googlePerfil} target="_blank" rel="noopener noreferrer">Ver no Google Maps</a></figcaption>
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section sand">
         <div className="wrap split">
           <div>
@@ -129,6 +142,7 @@ export default function Home() {
             <SplitText text={`${SITE.neighborhood}, região da ${SITE.area}`} as="h2" />
             <Reveal>
               <p className="lead" style={{ marginTop: 14 }}>{ENDERECO}. {SITE.neighborhood}, {SITE.city}-{SITE.region}.</p>
+              {HORARIO_CONFIRMADO && HORARIO ? <p className="lead" style={{ marginTop: 8 }}>{HORARIO}</p> : null}
               <div className="btn-row">
                 <a className="btn ghost" href={SITE.mapsLink} target="_blank" rel="noopener noreferrer">Como chegar</a>
               </div>

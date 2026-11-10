@@ -39,3 +39,8 @@ Nada abaixo foi inventado: o site mostra só o que veio do briefing ou da agenda
 - [ ] Autorização escrita da Kamila para os 3 quadros da seção "No Instagram" (`De2D2_8pfWl`, `DfPRk6hhjqa`, `Dez_PehBLC5`) e para o recorte do "Sobre".
 - [ ] Confirmar que a pessoa do reel `DfPRk6hhjqa` é a Kamila.
 - [ ] Escolher mais 3 posts sem rosto/pele de cliente, sem antes e depois e sem preço, para completar a grade de 6 (editar `src/data/instagram.ts` e rodar `node scripts/process-instagram.mjs`).
+
+## Google (v6.2)
+- Perfil da Empresa EXISTE (ao contrário do que o briefing dizia): nota 5,0 com 2 avaliações, endereço Rua Monsueto Filizzola, 16, telefone (31) 99927-4642 (igual ao WhatsApp do site), horário terça a sábado 8h às 18h (domingo e segunda fechado). Consultado em 10/11/2026.
+- [ ] Kamila confirmar esses dados e autorizar o trecho da avaliação na Home. O site não mostra nota média nem contagem (só 2 avaliações; as 2 são do mesmo nome, publicadas no mesmo dia). A segunda diz "tive muito resultado", que não pode ir ao site (promessa de resultado).
+- [ ] Pedir mais avaliações reais aos clientes (link de avaliação do Perfil) antes de mostrar nota ou contagem.

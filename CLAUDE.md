@@ -40,6 +40,11 @@ Fontes: revisao-1-e-site-v2.md e animacoes-v2.md (Downloads do Jeff). Decisões 
 - QA 09/11/2026 (Chrome e WebKit; 360/390/768/1440): sem rolagem horizontal, 1 H1 por página, CTA do hero visível sem rolar no celular, intro 1x por sessão e pulável, movimento reduzido e sem JS OK, alvos de toque >= 44 px, agendamento OK. LCP local do Chromium sem throttling 104 ms e CLS 0 (não é medida em 4G). Vídeo da Home não gerado (sem ffmpeg compatível): prints e sequência WebKit em `entrega/v2/`.
 - Bug achado no teste e corrigido: a animação da moldura se chamava `spin` e colidia com a do Tailwind (girava a caixa); renomeada para `frame-spin`.
 
+## v6.2 (10/11/2026): hero com vídeo, Google Maps
+- Hero: vídeo de tratamento (Pexels 3998272, cottonbro studio; óleo sobre a pele, sem rosto) no FUNDO, sob a Aurora (mix-blend screen), com título à esquerda e SEM moldura/card (pedido do Jeff). 243 KB; só começa após o load (2,2 s desktop, 4,2 s celular), pausa fora da tela, parado com movimento reduzido. A foto da Kamila saiu do hero (arquivos removidos).
+- Google Maps (Chrome do Jeff): o Perfil existe, 5,0 com 2 avaliações. Dados confirmados lá: endereço, telefone igual ao do site, horário terça a sábado 8h às 18h. Entraram: horário no site (`HORARIO`, JSON-LD `openingHours`), dias fechados no calendário do agendamento (domingo e segunda), "Como chegar" pelo Perfil, e 1 trecho de avaliação em "No Google" na Home (sem nota nem contagem; TODO aval da Kamila). A avaliação que fala em "resultado" ficou de fora.
+- Lighthouse celular com vídeo: 89 / 100 / 100 / 66 (era 90); o LCP simulado é o quadro de capa do vídeo.
+
 ## v6.1 (09/11/2026): pedidos do Jeff após a v6
 - Hero: foto da Kamila (reel do Instagram, ao ar livre) no lugar do card do logo (`FOTO_HERO`, `public/espaco/hero-*`); aval escrito dela pendente. Textos: "Luxo é se sentir bem todos os dias" só no hero (Sobre agora "Conheça quem cuida de você"); diferencial 03 e CTA final reescritos para não repetir.
 - Pampulha: foto de lugar (Pexels 32163514, Jerson Martins, igreja ao pôr do sol, "imagem ilustrativa") em "Onde estamos".

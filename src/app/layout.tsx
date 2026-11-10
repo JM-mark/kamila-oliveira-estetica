@@ -8,7 +8,7 @@ import Cursor from "@/components/Cursor";
 import Intro from "@/components/Intro";
 import Magnetic from "@/components/Magnetic";
 import { NavReady } from "@/components/PageCurtain";
-import { ENDERECO, ENDERECO_CONFIRMADO, HORARIO, HORARIO_CONFIRMADO, SITE } from "@/content/site";
+import { ENDERECO, ENDERECO_CONFIRMADO, HORARIO, HORARIO_CONFIRMADO, HORARIO_SCHEMA, SITE } from "@/content/site";
 
 const display = Gilda_Display({ subsets: ["latin"], weight: "400", variable: "--font-display", display: "swap" });
 const label = Marcellus({ subsets: ["latin"], weight: "400", variable: "--font-label", display: "swap" });
@@ -39,7 +39,7 @@ const jsonLd = {
   name: SITE.name,
   // TODO telefone (WhatsApp confirmado), endereço completo e horário: entram só quando a Kamila confirmar. Sem aggregateRating.
   address: { "@type": "PostalAddress", addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: "BR", ...(ENDERECO_CONFIRMADO && ENDERECO ? { streetAddress: ENDERECO } : {}) },
-  ...(HORARIO_CONFIRMADO && HORARIO ? { openingHours: HORARIO } : {}),
+  ...(HORARIO_CONFIRMADO && HORARIO ? { openingHours: HORARIO_SCHEMA } : {}),
   areaServed: `${SITE.neighborhood}, ${SITE.area}, ${SITE.city}`,
   sameAs: [SITE.instagram],
 };
